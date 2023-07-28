@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@800&display=swap');
+:root {
+  --bg-primary: #B2B0A4;
+  --bg-secondary: #D2D0C4;
+  --bg-tertiary: #E2E0D4;
+  --bg-quaternary: #321C11;
+  --bg-quinary: #422C21;
+  --text-primary: #40291B;
+  --text-primary-alternative: #f3f3f3;
+  --text-accent: #6F4930;
+  --text-accent-alternative: #EAD89A;
+
+  --font-base: 0.8rem;
+  --font-xs: 0.6rem;
+  --font-sm: 1rem;
+  --font-md: 1.2rem;
+  --font-lg: 1.5rem;
+  --font-xl: 1.8rem;
+
+  --app-width: 75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-size: var(--font-base);
+  font-family: Inter;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
