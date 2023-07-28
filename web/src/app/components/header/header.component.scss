@@ -17,37 +17,6 @@ header {
       gap: 1rem;
       justify-content: center;
     }
-    > .logotipo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      > .logo {
-        background-color: var(--bg-secondary);
-        box-shadow: 1px 1px 16px 0 rgba(0, 0, 0, 0.25);
-        border-radius: 50%;
-      }
-
-      > .brand {
-        > span {
-          color: var(--text-accent);
-        }
-
-        > h1 {
-          font-size: var(--font-xl);
-          font-family: Nunito;
-          font-weight: 800;
-          line-height: var(--font-lg);
-          color: var(--text-primary);
-        }
-
-        :last-child {
-          margin-left: 4rem;
-          text-transform: uppercase;
-          font-size: var(--font-xs);
-        }
-      }
-    }
 
     > nav {
      > ul {
