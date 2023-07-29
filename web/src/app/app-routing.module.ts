@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPageComponent } from './pages/notFound/notFoundPage.component';
 import { HomePageComponent } from './pages/home/homePage.component';
+import { CleroPageComponent } from './pages/clero/cleroPage.component';
 
 const routes: Routes = [
   {
@@ -12,17 +13,18 @@ const routes: Routes = [
   {
     path: 'clero',
     title: 'Clero | Paróquia São Benedito',
-    component: HomePageComponent,
+    component: CleroPageComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'nossa-historia',
-    title: 'Nossa História | Paróquia São Benedito',
-    component: HomePageComponent,
-    pathMatch: 'full',
-  },
+  // {
+  //   path: 'nossa-historia',
+  //   title: 'Nossa História | Paróquia São Benedito',
+  //   component: HomePageComponent,
+  //   pathMatch: 'full',
+  // },
   {
     path: '**',
+    title: '404 | Paróquia São Benedito',
     component: NotFoundPageComponent,
   },
 ];
