@@ -4,6 +4,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  @media  (max-width: 496px) {
+    padding: 0.5rem 0;
+  }
   > .header-wrapper {
     display: flex;
     align-items: center;
@@ -13,8 +16,9 @@ header {
     max-width: var(--app-width);
     padding: 0.4rem 0;
 
-    @media (max-width: 396px) {
-      gap: 1rem;
+    @media  (max-width: 496px) {
+      gap: 1.5rem;
+      padding: 1rem 0.8rem;
       justify-content: center;
     }
 
@@ -22,7 +26,7 @@ header {
      > ul {
       display: flex;
       list-style: none;
-      gap: 0.8rem;
+      gap: 1rem;
       > li {
         > a {
           font-size: var(--font-sm);
