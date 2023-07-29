@@ -23,6 +23,16 @@ footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap-reverse;
+      gap: 1rem;
+
+      @media (max-width: 450px) {
+        justify-content: center;
+        > .footer-addresses {
+          margin-top: 2rem;
+        }
+      }
+
       > .footer-addresses, > .footer-social-media {
         display: flex;
         flex-direction: column;
