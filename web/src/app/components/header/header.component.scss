@@ -4,6 +4,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  z-index: 1000;
   @media  (max-width: 496px) {
     padding: 0.5rem 0;
   }
