@@ -1,6 +1,8 @@
 .app-wrapper {
   min-height: 40vh;
   max-width: var(--app-width);
+  width: 100%;
+  flex: 1;
   margin: 0 auto;
   padding-top: 6rem;
 
