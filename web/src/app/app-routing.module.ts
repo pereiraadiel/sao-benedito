@@ -4,6 +4,7 @@ import { NotFoundPageComponent } from './pages/notFound/notFoundPage.component';
 import { HomePageComponent } from './pages/home/homePage.component';
 import { CleroPageComponent } from './pages/clero/cleroPage.component';
 import { NossaHistoriaPageComponent } from './pages/nossaHistoria/nossaHistoriaPage.component';
+import { PadroeiroPageComponent } from './pages/padroeiro/padroeiroPage.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,12 @@ const routes: Routes = [
     path: 'clero',
     title: 'Clero | Paróquia São Benedito',
     component: CleroPageComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'padroeiro',
+    title: 'Padroeiro | Paróquia São Benedito',
+    component: PadroeiroPageComponent,
     pathMatch: 'full',
   },
   {
