@@ -1,7 +1,6 @@
 footer {
   width: 100%;
-  padding: 1rem;
-  padding: 3rem 1rem;
+  padding: 3rem 1rem 1rem 1rem;
   background-color: var(--bg-quaternary);
   color: var(--text-primary-alternative);
   display: flex;
@@ -77,6 +76,16 @@ footer {
         }
       }
     }
+
+    // > .footer-copyright {
+    //   margin: 2rem 0 1rem 0;
+    //   color: var(--text-primary-alternative);
+    //   > p {
+    //     > a {
+    //       color: var(--text-accent-alternative);
+    //     }
+    //   }
+    // }
   }
 
 }

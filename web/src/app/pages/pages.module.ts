@@ -5,9 +5,15 @@ import { HomePageComponent } from './home/homePage.component';
 import { HomeComponentsModule } from './home/components/homeComponents.module';
 import { CleroComponentsModule } from './clero/components/cleroComponents.module';
 import { CleroPageComponent } from './clero/cleroPage.component';
+import { NossaHistoriaPageComponent } from './nossaHistoria/nossaHistoriaPage.component';
 
 @NgModule({
-  declarations: [NotFoundPageComponent, HomePageComponent, CleroPageComponent],
+  declarations: [
+    NotFoundPageComponent,
+    HomePageComponent,
+    CleroPageComponent,
+    NossaHistoriaPageComponent,
+  ],
   imports: [BrowserModule, HomeComponentsModule, CleroComponentsModule],
   providers: [],
   exports: [NotFoundPageComponent, HomePageComponent],
