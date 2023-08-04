@@ -13,6 +13,13 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent,
     pathMatch: 'full',
+    data: {
+      meta: {
+        title: 'Paróquia São Benedito',
+        description:
+          "Paróquia São Benedito e Comunidade Sant'Ana - Diocese de Uberlândia-MG",
+      },
+    },
   },
   {
     path: 'padroeiro',

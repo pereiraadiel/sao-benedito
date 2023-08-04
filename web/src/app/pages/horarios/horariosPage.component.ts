@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-horarios',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./horariosPage.component.scss'],
 })
 export class HorariosPageComponent {
+  constructor(private readonly meta: Meta) {}
+
+  ngOnInit(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Fique por dentro dos horários de funcionamento das nossas comunidades.',
+    });
+  }
+
   horariosMissaSaoBenedito = [
     {
       title: 'Quarta-feira',
