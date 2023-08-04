@@ -7,6 +7,8 @@ import { CleroComponentsModule } from './clero/components/cleroComponents.module
 import { CleroPageComponent } from './clero/cleroPage.component';
 import { NossaHistoriaPageComponent } from './nossaHistoria/nossaHistoriaPage.component';
 import { PadroeiroPageComponent } from './padroeiro/padroeiroPage.component';
+import { HorariosPageComponent } from './horarios/horariosPage.component';
+import { HorariosComponentsModule } from './horarios/components/horariosComponents.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,14 @@ import { PadroeiroPageComponent } from './padroeiro/padroeiroPage.component';
     CleroPageComponent,
     NossaHistoriaPageComponent,
     PadroeiroPageComponent,
+    HorariosPageComponent,
   ],
-  imports: [BrowserModule, HomeComponentsModule, CleroComponentsModule],
+  imports: [
+    BrowserModule,
+    HomeComponentsModule,
+    CleroComponentsModule,
+    HorariosComponentsModule,
+  ],
   providers: [],
   exports: [NotFoundPageComponent, HomePageComponent],
 })

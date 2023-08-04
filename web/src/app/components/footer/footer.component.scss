@@ -41,12 +41,15 @@ footer {
       > .footer-addresses {
         > .footer-address {
           > h2 {
+            color: var(--text-primary-alternative);
             font-size: var(--font-md)
           }
           > p {
+            color: var(--text-primary-alternative);
             font-size: var(--font-sm);
           }
           > span {
+            color: var(--text-primary-alternative);
             font-size: var(--font-base);
           }
         }

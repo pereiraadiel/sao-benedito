@@ -1,0 +1,19 @@
+<div class="horario-card">
+  <div class="side">
+    <img [src]="photo" [alt]="church" />
+    <h2>{{church}}</h2>
+    <h3>{{address}}</h3>
+    <p>{{district}}</p>
+  </div>
+
+  <div class="description">
+    <h2>{{title}}</h2>
+    <h3>{{subtitle}}</h3>
+    <div class="horarios" *ngFor="let item of horarios">
+      <h2>{{item.title}}</h2>
+      <div class="hora">
+        <p *ngFor="let hour of item.times">{{hour}}</p>
+      </div>
+    </div>
+  </div>
+</div>
