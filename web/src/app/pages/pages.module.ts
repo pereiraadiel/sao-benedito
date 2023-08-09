@@ -9,6 +9,8 @@ import { NossaHistoriaPageComponent } from './nossaHistoria/nossaHistoriaPage.co
 import { PadroeiroPageComponent } from './padroeiro/padroeiroPage.component';
 import { HorariosPageComponent } from './horarios/horariosPage.component';
 import { HorariosComponentsModule } from './horarios/components/horariosComponents.module';
+import { ProjetosPageComponent } from './projetos/projetosPage.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { HorariosComponentsModule } from './horarios/components/horariosComponen
     NossaHistoriaPageComponent,
     PadroeiroPageComponent,
     HorariosPageComponent,
+    ProjetosPageComponent,
   ],
   imports: [
     BrowserModule,
     HomeComponentsModule,
     CleroComponentsModule,
     HorariosComponentsModule,
+    ComponentsModule,
   ],
   providers: [],
   exports: [NotFoundPageComponent, HomePageComponent],
