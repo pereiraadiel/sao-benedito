@@ -11,17 +11,10 @@
         obra.
       </p>
       <div class="grid">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/juUt-rN5CVo" frameborder="0"
-          allowfullscreen></iframe>
-        <img
-          src="https://media.istockphoto.com/id/1038044058/pt/foto/low-angle-view-of-skyscraper.webp?b=1&s=612x612&w=0&k=20&c=Dwko-UGEd1y7RqizzEb5CqCPCVXkX5dpMDo-Md97HN0="
-          alt="foto da obra do salão paroquial" title="Foto da obra do salão paroquial" />
-        <img src="https://cdn.pixabay.com/photo/2015/12/07/10/58/architect-1080592_640.jpg"
-          alt="foto da obra do salão paroquial" title="Foto da obra do salão paroquial" />
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YHNuhcGhDRg" frameborder="0"
-          allowfullscreen></iframe>
-        <img src="https://cdn.pixabay.com/photo/2016/02/01/21/15/excavator-1174428_640.jpg"
-          alt="foto da obra do salão paroquial" title="Foto da obra do salão paroquial" />
+        <div *ngFor="let item of salaoParoquial.slice(0, 5); let i = index">
+          <img (click)="openModal(i)" [src]="item.thumbnail" [alt]="item.text" [title]="item.text" width="100%"
+            height="100%" />
+        </div>
       </div>
       <button (click)="openModal()">Ver tudo</button>
     </section>
@@ -29,8 +22,13 @@
 </section>
 
 <app-modal *ngIf="showModal" (onClosed)="closeModal()">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/juUt-rN5CVo" frameborder="0"
-    allowfullscreen></iframe>
-  <button class="button left">↓</button>
-  <button class="button right">↓</button>
+  <div class="container">
+    <iframe *ngIf="showVideo" width="100%" height="100%" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+    <a *ngIf="showImage" [href]="imageUrl" rel="noreferrer noopener" target="_blank">
+      <img [src]="imageUrl" [alt]="currentImageAlt" width="100%" height="100%" />
+    </a>
+    <button class="button left" (click)="goToPrevious()">↓</button>
+    <button class="button right" (click)="goToNext()">↓</button>
+  </div>
+
 </app-modal>
