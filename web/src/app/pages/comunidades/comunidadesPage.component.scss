@@ -104,6 +104,16 @@ section.comunidades {
             border-radius: var(--border-radius);
             margin-top: 1rem;
             background-color: var(--bg-secondary);
+            body {
+              border: 1px solid blue !important;
+              background-color: var(--bg-secondary);
+              .gm-style, .gm-style-iw-c {
+                  background-color: var(--bg-secondary) !important; /* Cor de fundo escura */
+                  color: #fff; /* Cor do texto clara */
+                  border: 1px solid red !important;
+              }
+            }
+
           }
         }
 
