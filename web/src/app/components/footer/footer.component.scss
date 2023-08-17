@@ -80,15 +80,16 @@ footer {
       }
     }
 
-    // > .footer-copyright {
-    //   margin: 2rem 0 1rem 0;
-    //   color: var(--text-primary-alternative);
-    //   > p {
-    //     > a {
-    //       color: var(--text-accent-alternative);
-    //     }
-    //   }
-    // }
+    > .footer-copyright {
+      margin: 2rem 0 1rem 0;
+      color: var(--text-primary-alternative);
+      > p {
+        color: var(--text-primary-alternative);
+        > a {
+          color: var(--text-accent-alternative);
+        }
+      }
+    }
   }
 
 }

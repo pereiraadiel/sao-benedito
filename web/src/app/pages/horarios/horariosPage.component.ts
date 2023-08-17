@@ -23,8 +23,12 @@ export class HorariosPageComponent {
       times: ['19:30'],
     },
     {
-      title: 'Primeira Sexta-feira do mês',
+      title: '1ª Sexta-feira do mês',
       times: ['19:30'],
+    },
+    {
+      title: '2ª Sexta-feira do mês',
+      times: ['19:30 (Missa da Saúde)'],
     },
     {
       title: 'Sábado',
@@ -47,8 +51,12 @@ export class HorariosPageComponent {
       times: ['19:30'],
     },
     {
-      title: 'Primeira Sexta-feira do mês',
+      title: '1ª Sexta-feira do mês',
       times: ['19:30'],
+    },
+    {
+      title: '2ª Sexta-feira do mês',
+      times: ['19:30 (Missa da saúde)'],
     },
     {
       title: 'Domingo',
