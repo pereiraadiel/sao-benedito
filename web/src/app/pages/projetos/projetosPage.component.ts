@@ -10,117 +10,45 @@ export class ProjetosPageComponent {
   salaoParoquial = [
     {
       type: 'video',
-      url: 'juUt-rN5CVo',
-      text: 'Video sobre o salao paroquial',
-      thumbnail: 'http://i3.ytimg.com/vi/juUt-rN5CVo/maxresdefault.jpg',
-    },
-    {
-      type: 'image',
-      url: 'https://picsum.photos/seed/sete/720/720',
-      text: 'Foto sobre o salao paroquial',
-      thumbnail: 'https://picsum.photos/seed/sete/720/720',
+      slug: 'sb-salao-paroquial-telhas.mp4',
+      text: 'Telhado do Salão Paroquial',
     },
     {
       type: 'video',
-      url: 'YHNuhcGhDRg',
-      text: 'Video sobre o salao paroquial',
-      thumbnail: 'http://i3.ytimg.com/vi/YHNuhcGhDRg/maxresdefault.jpg',
-    },
-    {
-      type: 'image',
-      url: 'https://picsum.photos/seed/1024/720/720',
-      text: 'Foto sobre o salao paroquial',
-      thumbnail: 'https://picsum.photos/seed/1024/720/720',
-    },
-    {
-      type: 'image',
-      url: 'https://picsum.photos/seed/arraial/720/720',
-      text: 'Foto sobre o salao paroquial',
-      thumbnail: 'https://picsum.photos/seed/arraial/720/720',
-    },
-    {
-      type: 'image',
-      url: 'https://picsum.photos/seed/festa/720/720',
-      text: 'Foto sobre o salao paroquial',
-      thumbnail: 'https://picsum.photos/seed/festa/720/720',
-    },
-    {
-      type: 'image',
-      url: 'https://picsum.photos/seed/mania/720/720',
-      text: 'Foto sobre o salao paroquial',
-      thumbnail: 'https://picsum.photos/seed/mania/720/720',
+      slug: 'sb-rede-fluvial-salao-paroquial.mp4',
+      text: 'Rede fluvial do Salão Paroquial',
     },
   ];
+
   constructor(
     private readonly meta: Meta,
     private readonly sanitizer: DomSanitizer
   ) {
     console.log(this.salaoParoquial);
   }
-  title = 'Paróquia São Benedito';
-  showModal = false;
-  showVideo = false;
-  showImage = false;
+  private storageUrl = 'https://files.adiel.dev';
+  private currentIndex = 0;
 
-  currentImageUrl = this.salaoParoquial[0].url;
-  currentImageAlt = this.salaoParoquial[0].text;
-  currentVideoId = this.salaoParoquial[0].url;
-  currentVideoUrl = '';
-  currentIndex = 0;
+  title = 'Paróquia São Benedito';
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
       content: 'Projetos e reformas das nossa comunidades.',
     });
-    this.loadCurrent();
   }
 
-  loadCurrent() {
-    const current = this.salaoParoquial[this.currentIndex];
-
-    if (current.type === 'image') {
-      this.currentImageAlt = current.text;
-      this.currentImageUrl = current.url;
-      this.showImage = true;
-      this.showVideo = false;
-    } else {
-      this.currentVideoId = current.url;
-      this.showVideo = true;
-      this.showImage = false;
-    }
-  }
-
-  get videoUrl(): SafeResourceUrl {
-    const url = `https://www.youtube.com/embed/${this.currentVideoId}`;
+  private sanitize(slug: string): SafeResourceUrl {
+    const url = `${this.storageUrl}/${slug}`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
-  get imageUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.currentImageUrl);
+
+  get currentUrl(): SafeResourceUrl {
+    const item = this.salaoParoquial[this.currentIndex];
+    return this.sanitize(item.slug);
   }
 
-  goToNext() {
-    if (this.currentIndex < this.salaoParoquial.length - 1) {
-      this.currentIndex++;
-      this.loadCurrent();
-    }
-  }
-  goToPrevious() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.loadCurrent();
-    }
-  }
-
-  openModal(index = 0) {
-    this.currentIndex = index;
-    this.showModal = true;
-    this.loadCurrent();
-    document.querySelector('#projetos')?.classList.add('isModalOpen');
-  }
-
-  closeModal() {
-    this.showModal = false;
-    document.querySelector('#projetos')?.classList.remove('isModalOpen');
+  slugUrl(slug: string): SafeResourceUrl {
+    return this.sanitize(slug);
   }
 }

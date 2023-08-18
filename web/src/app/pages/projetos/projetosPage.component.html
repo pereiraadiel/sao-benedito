@@ -11,24 +11,14 @@
         obra.
       </p>
       <div class="grid">
-        <div *ngFor="let item of salaoParoquial.slice(0, 5); let i = index">
-          <img (click)="openModal(i)" [src]="item.thumbnail" [alt]="item.text" [title]="item.text" width="100%"
-            height="100%" />
+        <div *ngFor="let item of salaoParoquial; let i = index">
+          <img *ngIf="item.type === 'image'" [src]="slugUrl(item.slug)" [alt]="item.text" [title]="item.text"
+            width="100%" height="100%" />
+          <video *ngIf="item.type === 'video'" [title]="item.text" width="100%" height="100%" controls>
+            <source [src]="slugUrl(item.slug)" type="video/mp4">
+          </video>
         </div>
       </div>
-      <button (click)="openModal()">Ver tudo</button>
     </section>
   </div>
 </section>
-
-<app-modal *ngIf="showModal" (onClosed)="closeModal()">
-  <div class="container">
-    <iframe *ngIf="showVideo" width="100%" height="100%" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
-    <a *ngIf="showImage" [href]="imageUrl" rel="noreferrer noopener" target="_blank">
-      <img [src]="imageUrl" [alt]="currentImageAlt" width="100%" height="100%" />
-    </a>
-    <button class="button left" (click)="goToPrevious()">↓</button>
-    <button class="button right" (click)="goToNext()">↓</button>
-  </div>
-
-</app-modal>
