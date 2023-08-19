@@ -10,15 +10,8 @@
         esta sendo contruído o salão paroquial com previsão de conclusão até outubro de 2023. <br />Veja o andamento da
         obra.
       </p>
-      <div class="grid">
-        <div *ngFor="let item of salaoParoquial; let i = index">
-          <img *ngIf="item.type === 'image'" [src]="slugUrl(item.slug)" [alt]="item.text" [title]="item.text"
-            width="100%" height="100%" />
-          <video *ngIf="item.type === 'video'" [title]="item.text" width="100%" height="100%" controls>
-            <source [src]="slugUrl(item.slug)" type="video/mp4">
-          </video>
-        </div>
-      </div>
+
+      <app-carousel [slides]="salaoParoquialSlides" />
     </section>
   </div>
 </section>

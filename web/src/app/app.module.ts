@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { register } from 'swiper/element/bundle';
+register();
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

@@ -1,33 +1,36 @@
 import { Component } from '@angular/core';
-import { DomSanitizer, Meta, SafeResourceUrl } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 
+type Slide = {
+  url: string;
+  type: 'video' | 'image';
+  text: string;
+};
 @Component({
   selector: 'app-projetos',
   templateUrl: './projetosPage.component.html',
   styleUrls: ['./projetosPage.component.scss'],
 })
 export class ProjetosPageComponent {
-  salaoParoquial = [
+  salaoParoquialSlides: Slide[] = [
     {
+      url: 'https://files.adiel.dev/sb-rede-fluvial-salao-paroquial.mp4',
       type: 'video',
-      slug: 'sb-salao-paroquial-telhas.mp4',
-      text: 'Telhado do Salão Paroquial',
+      text: 'Tubulação do salão paroquial',
     },
     {
+      url: 'https://files.adiel.dev/sb-salao-paroquial-telhas.mp4',
       type: 'video',
-      slug: 'sb-rede-fluvial-salao-paroquial.mp4',
-      text: 'Rede fluvial do Salão Paroquial',
+      text: 'Telhado do salão paroquial',
+    },
+    {
+      url: 'https://files.adiel.dev/sb-reforma-corredor-catequese.mp4',
+      type: 'video',
+      text: 'Corredor das salas de catequese',
     },
   ];
 
-  constructor(
-    private readonly meta: Meta,
-    private readonly sanitizer: DomSanitizer
-  ) {
-    console.log(this.salaoParoquial);
-  }
-  private storageUrl = 'https://files.adiel.dev';
-  private currentIndex = 0;
+  constructor(private readonly meta: Meta) {}
 
   title = 'Paróquia São Benedito';
 
@@ -36,19 +39,5 @@ export class ProjetosPageComponent {
       name: 'description',
       content: 'Projetos e reformas das nossa comunidades.',
     });
-  }
-
-  private sanitize(slug: string): SafeResourceUrl {
-    const url = `${this.storageUrl}/${slug}`;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-
-  get currentUrl(): SafeResourceUrl {
-    const item = this.salaoParoquial[this.currentIndex];
-    return this.sanitize(item.slug);
-  }
-
-  slugUrl(slug: string): SafeResourceUrl {
-    return this.sanitize(slug);
   }
 }
