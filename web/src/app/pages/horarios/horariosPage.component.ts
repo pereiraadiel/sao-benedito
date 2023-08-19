@@ -28,7 +28,7 @@ export class HorariosPageComponent {
     },
     {
       title: '2ª Sexta-feira do mês',
-      times: ['19:30 (Missa da Saúde)'],
+      times: ['15:00 (Missa da Saúde)'],
     },
     {
       title: 'Sábado',
@@ -56,7 +56,7 @@ export class HorariosPageComponent {
     },
     {
       title: '2ª Sexta-feira do mês',
-      times: ['19:30 (Missa da saúde)'],
+      times: ['15:00 (Missa da saúde)'],
     },
     {
       title: 'Domingo',

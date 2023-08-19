@@ -8,7 +8,7 @@
           <img [src]="urlSanitization(item.url)" [alt]="item.text">
         </a>
         <video *ngIf="item.type === 'video'" controls>
-          <source [src]="urlSanitization(item.url)" type="video/mp4">
+          <source [src]="urlSanitization(item.url)" type="video/webm">
           Este navegador não tem suporte para vídeos.
         </video>
       </div>

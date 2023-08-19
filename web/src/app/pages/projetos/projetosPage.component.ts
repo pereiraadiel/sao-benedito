@@ -14,27 +14,27 @@ type Slide = {
 export class ProjetosPageComponent {
   salaoParoquialSlides: Slide[] = [
     {
-      url: 'https://files.adiel.dev/sb-salao-paroquial-telhas.mp4',
+      url: 'https://files.adiel.dev/sb-salao-paroquial-telhas.webm',
       type: 'video',
       text: 'Telhado do salão paroquial',
     },
     {
-      url: 'https://files.adiel.dev/sb-reforma-corredor-catequese.mp4',
+      url: 'https://files.adiel.dev/sb-reforma-corredor-catequese.webm',
       type: 'video',
       text: 'Corredor das salas de catequese',
     },
     {
-      url: 'https://files.adiel.dev/sb-tubulação-salao-paroquial.jpeg',
+      url: 'https://files.adiel.dev/sb-tubulação-salao-paroquial.webp',
       type: 'image',
       text: 'Tubulação do salão paroquial',
     },
     {
-      url: 'https://files.adiel.dev/sb-tubulação-fundos-02.jpeg',
+      url: 'https://files.adiel.dev/sb-tubulação-fundos-02.webp',
       type: 'image',
       text: 'Tubulação do pátio',
     },
     {
-      url: 'https://files.adiel.dev/sb-tubulação-fundos-01.jpeg',
+      url: 'https://files.adiel.dev/sb-tubulação-fundos-01.webp',
       type: 'image',
       text: 'Tubulação do pátio',
     },
