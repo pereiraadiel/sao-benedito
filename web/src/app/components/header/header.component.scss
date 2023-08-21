@@ -25,6 +25,7 @@ header {
     }
 
     > nav {
+      min-width: 10rem;
      > ul {
       display: flex;
       list-style: none;
