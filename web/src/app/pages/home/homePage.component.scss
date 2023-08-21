@@ -27,14 +27,16 @@ section.home {
     height: 100%;
     z-index: 1;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 35%;
+    animation: animatePosition 8s infinite linear alternate;
   }
   > img.brand {
     z-index: 2;
     position: absolute;
-    height: 40%;
+    bottom: 3%;
+    height: 45%;
     @media (max-width: 480px) {
-      margin-bottom: 3rem;
+      bottom: 3%;
       width: 6rem;
       height: auto;
     }
@@ -46,4 +48,27 @@ section.home {
     background-color: rgba(210, 206,196, 0.6);
     z-index: 2;
   }
+}
+
+@keyframes animatePosition {
+  0% { object-position: center 0%; }
+  5% { object-position: center 5%; }
+  10% { object-position: center 10%; }
+  20% { object-position: center 20%; }
+  25% { object-position: center 25%; }
+  30% { object-position: center 30%; }
+  35% { object-position: center 35%; }
+  40% { object-position: center 40%; }
+  45% { object-position: center 45%; }
+  50% { object-position: center 50%; }
+  55% { object-position: center 55%; }
+  60% { object-position: center 60%; }
+  65% { object-position: center 65%; }
+  70% { object-position: center 70%; }
+  75% { object-position: center 75%; }
+  80% { object-position: center 80%; }
+  85% { object-position: center 85%; }
+  90% { object-position: center 90%; }
+  95% { object-position: center 95%; }
+  100% { object-position: center 100%; }
 }

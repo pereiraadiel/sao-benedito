@@ -21,11 +21,14 @@ export class HomePageComponent implements OnInit, OnDestroy {
     'https://files.adiel.dev/missa.webp',
     'https://files.adiel.dev/sb-altar.webp',
     'https://files.adiel.dev/sb-nave-01.webp',
+    'https://files.adiel.dev/sb-fachada.webp',
     'https://files.adiel.dev/missa-02.webp',
     'https://files.adiel.dev/sb-nossa-senhora.webp',
   ];
   private subscription: Subscription | undefined;
-  private currentImageIndex: number = 0;
+  private currentImageIndex: number = Math.floor(
+    Math.random() * this.images.length
+  );
 
   constructor(
     private renderer: Renderer2,
@@ -33,7 +36,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscription = interval(7 * 1000).subscribe(() => {
+    this.subscription = interval(15 * 1000).subscribe(() => {
       this.changeHeroBackground();
     });
   }
