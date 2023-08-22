@@ -1,42 +1,38 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { GalleryItem } from '../../interfaces/galleryItem.interface';
 
-type Slide = {
-  url: string;
-  type: 'video' | 'image';
-  text: string;
-};
 @Component({
   selector: 'app-projetos',
   templateUrl: './projetosPage.component.html',
   styleUrls: ['./projetosPage.component.scss'],
 })
 export class ProjetosPageComponent {
-  salaoParoquialSlides: Slide[] = [
+  salaoParoquialSlides: GalleryItem[] = [
     {
-      url: 'https://files.adiel.dev/sb-salao-paroquial-telhas.webm',
+      source: 'https://files.adiel.dev/sb-salao-paroquial-telhas.webm',
       type: 'video',
-      text: 'Telhado do salão paroquial',
+      alternativeText: 'Telhado do salão paroquial',
     },
     {
-      url: 'https://files.adiel.dev/sb-reforma-corredor-catequese.webm',
+      source: 'https://files.adiel.dev/sb-tubulação-salao-paroquial.webp',
+      type: 'image',
+      alternativeText: 'Tubulação do salão paroquial',
+    },
+    {
+      source: 'https://files.adiel.dev/sb-tubulação-fundos-02.webp',
+      type: 'image',
+      alternativeText: 'Tubulação do pátio',
+    },
+    {
+      source: 'https://files.adiel.dev/sb-reforma-corredor-catequese.webm',
       type: 'video',
-      text: 'Corredor das salas de catequese',
+      alternativeText: 'Corredor das salas de catequese',
     },
     {
-      url: 'https://files.adiel.dev/sb-tubulação-salao-paroquial.webp',
+      source: 'https://files.adiel.dev/sb-tubulação-fundos-01.webp',
       type: 'image',
-      text: 'Tubulação do salão paroquial',
-    },
-    {
-      url: 'https://files.adiel.dev/sb-tubulação-fundos-02.webp',
-      type: 'image',
-      text: 'Tubulação do pátio',
-    },
-    {
-      url: 'https://files.adiel.dev/sb-tubulação-fundos-01.webp',
-      type: 'image',
-      text: 'Tubulação do pátio',
+      alternativeText: 'Tubulação do pátio',
     },
   ];
 

@@ -4,7 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './logo/logo.component';
 import { ModalComponent } from './modal/modal.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     FooterComponent,
     LogoComponent,
     ModalComponent,
-    CarouselComponent,
+    GalleryComponent,
   ],
   imports: [BrowserModule],
   providers: [],
@@ -21,7 +21,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     FooterComponent,
     LogoComponent,
     ModalComponent,
-    CarouselComponent,
+    GalleryComponent,
   ],
 })
 export class ComponentsModule {}
