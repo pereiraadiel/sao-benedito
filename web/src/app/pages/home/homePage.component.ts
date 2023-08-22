@@ -18,17 +18,18 @@ export class HomePageComponent implements OnInit, OnDestroy {
   @ViewChild('heroBackground') heroBackground: ElementRef | undefined;
   private images: string[] = [
     'https://files.adiel.dev/paroquia-saobenedito.webp',
-    'https://files.adiel.dev/missa.webp',
-    'https://files.adiel.dev/sb-altar.webp',
-    'https://files.adiel.dev/sa-fachada-04.webp',
-    'https://files.adiel.dev/sb-nave-01.webp',
     'https://files.adiel.dev/sb-fachada.webp',
     'https://files.adiel.dev/sa-fachada-02.webp',
+    'https://files.adiel.dev/missa.webp',
     'https://files.adiel.dev/missa-02.webp',
+    'https://files.adiel.dev/sb-altar.webp',
+    'https://files.adiel.dev/sb-nave-01.webp',
     'https://files.adiel.dev/sb-nossa-senhora.webp',
+    'https://files.adiel.dev/sa-fachada-01.webp',
+    'https://files.adiel.dev/sa-fachada-04.webp',
     'https://files.adiel.dev/sa-fachada-03.webp',
     'https://files.adiel.dev/sa-corinhas.webp',
-    'https://files.adiel.dev/sa-fachada-01.webp',
+    'https://files.adiel.dev/acolita-coroinhas.webp',
   ];
   private subscription: Subscription | undefined;
   private currentImageIndex: number = Math.floor(
