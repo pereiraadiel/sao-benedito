@@ -11,6 +11,7 @@ import { HorariosPageComponent } from './horarios/horariosPage.component';
 import { HorariosComponentsModule } from './horarios/components/horariosComponents.module';
 import { ProjetosPageComponent } from './projetos/projetosPage.component';
 import { ComponentsModule } from '../components/components.module';
+import { SecretariaPageComponent } from './secretaria/secretariaPage.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ComponentsModule } from '../components/components.module';
     PadroeiroPageComponent,
     HorariosPageComponent,
     ProjetosPageComponent,
+    SecretariaPageComponent,
   ],
   imports: [
     BrowserModule,

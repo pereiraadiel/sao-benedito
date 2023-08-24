@@ -30,6 +30,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     'https://files.adiel.dev/sa-fachada-03.webp',
     'https://files.adiel.dev/sa-corinhas.webp',
     'https://files.adiel.dev/acolita-coroinhas.webp',
+    'https://files.adiel.dev/ministros.webp',
   ];
   private subscription: Subscription | undefined;
   private currentImageIndex: number = Math.floor(
