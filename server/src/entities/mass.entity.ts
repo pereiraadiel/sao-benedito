@@ -9,7 +9,7 @@ export class MassEntity extends Entity {
 
   community: CommunityEntity;
 
-  constructor(entity: MassEntity, id?: string) {
+  constructor(entity: Omit<MassEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
   }

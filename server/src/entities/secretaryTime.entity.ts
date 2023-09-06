@@ -9,7 +9,10 @@ export class SecretaryTimeEntity extends Entity {
 
   community: CommunityEntity;
 
-  constructor(entity: SecretaryTimeEntity, id?: string) {
+  constructor(
+    entity: Omit<SecretaryTimeEntity, 'id' | 'createdAt'>,
+    id?: string,
+  ) {
     super(entity, id);
     Object.assign(this, entity);
   }

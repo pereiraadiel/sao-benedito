@@ -17,7 +17,7 @@ export class CommunityEntity extends Entity {
   confessions: ConfessionEntity[];
   secretaryTimes: SecretaryTimeEntity[];
 
-  constructor(entity: CommunityEntity, id?: string) {
+  constructor(entity: Omit<CommunityEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
 

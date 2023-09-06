@@ -8,7 +8,7 @@ export class MediaEntity extends Entity {
   alternativeText: string;
   event?: EventEntity;
 
-  constructor(entity: MediaEntity, id?: string) {
+  constructor(entity: Omit<MediaEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
   }

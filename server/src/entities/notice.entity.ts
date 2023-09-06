@@ -7,7 +7,7 @@ export class NoticeEntity extends Entity {
   notifyFrom: Date;
   notifyUntil: Date;
 
-  constructor(entity: NoticeEntity, id?: string) {
+  constructor(entity: Omit<NoticeEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
   }

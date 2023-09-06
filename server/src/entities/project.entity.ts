@@ -10,7 +10,7 @@ export class ProjectEntity extends Entity {
   medias: MediaEntity[];
   community: CommunityEntity;
 
-  constructor(entity: ProjectEntity, id?: string) {
+  constructor(entity: Omit<ProjectEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
 

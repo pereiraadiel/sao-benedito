@@ -9,7 +9,7 @@ export class ConfessionEntity extends Entity {
 
   community: CommunityEntity;
 
-  constructor(entity: ConfessionEntity, id?: string) {
+  constructor(entity: Omit<ConfessionEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
     Object.assign(this, entity);
   }

@@ -1,18 +1,18 @@
 import { v4 as UUID } from 'uuid';
 
 export class Entity {
-  id?: string;
+  id: string;
   createdAt: Date;
   updatedAt?: Date;
 
-  constructor(entity: Entity, id?: string) {
+  constructor(entity: Omit<Entity, 'id' | 'createdAt'>, id?: string) {
     Object.assign(this, {
       ...entity,
       id,
     });
 
     if (!this.id) {
-      this.id = UUID();
+      this.id = UUID().replaceAll('-', '');
     }
 
     if (!this.createdAt) {
