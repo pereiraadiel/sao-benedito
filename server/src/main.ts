@@ -1,16 +1,19 @@
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
+
 import { AppModule } from './modules/app.module';
 import { AppConstants } from './constants/app.constant';
+import { LoggerUtil } from './utils/logger.util';
+import { ExceptionHandler } from './handlers/exception.handler';
+const logger = new LoggerUtil();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalFilters(new ExceptionHandler());
+  app.useGlobalPipes(new ValidationPipe());
+  app.enableCors();
   await app.listen(AppConstants.port, async () => {
-    console.warn(
-      '\n\x1b[36m%s\x1b[0m',
-      `============ ${
-        AppConstants.name
-      } ============\nserver is running on: ${await app.getUrl()}`,
-    );
+    logger.info(`server is running on: ${await app.getUrl()}`);
   });
 }
 bootstrap();

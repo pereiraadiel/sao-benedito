@@ -2,7 +2,7 @@ import { v4 as UUID } from 'uuid';
 
 export class Entity {
   id?: string;
-  createdAt?: Date;
+  createdAt: Date;
   updatedAt?: Date;
 
   constructor(entity: Entity, id?: string) {

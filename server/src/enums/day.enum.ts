@@ -1,10 +1,10 @@
 export const DayEnum = {
   domingo: 'Domingo',
-  segunda: 'Segunda-feira',
-  terca: 'Terça-feira',
-  quarta: 'Quarta-feira',
-  quinta: 'Quinta-feira',
-  sexta: 'Sexta-feira',
+  segunda: 'Segunda',
+  terca: 'Terca',
+  quarta: 'Quarta',
+  quinta: 'Quinta',
+  sexta: 'Sexta',
   sabado: 'Sábado',
 } as const;
 
