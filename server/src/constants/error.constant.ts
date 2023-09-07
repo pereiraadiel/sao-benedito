@@ -35,4 +35,4 @@ export const ErrorConstant = {
     code: 501,
     message: 'This resource was not implemented',
   },
-};
+} as const;
