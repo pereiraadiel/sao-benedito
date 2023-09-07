@@ -4,6 +4,7 @@ import { UsersRepository } from '../../repositories/users/users.repository';
 import { Usecase } from '../usecase';
 import { HashService } from '../../services/hash.service';
 import { Inject, Injectable } from '@nestjs/common';
+import { AlreadyExistsException } from '../../exceptions/alreadyExists.expection';
 
 @Injectable()
 export class CreateOneUserUsecase extends Usecase {
@@ -26,6 +27,22 @@ export class CreateOneUserUsecase extends Usecase {
     phone,
   }: CreateOneUserDTO) {
     try {
+      const alreadyExistsWithEmail =
+        await this.repository.findOneByEmail(email);
+      const alreadyExistsWithCpf = await this.repository.findOneByCpf(cpf);
+
+      if (alreadyExistsWithCpf || alreadyExistsWithEmail) {
+        throw new AlreadyExistsException(
+          [
+            {
+              email,
+              cpf,
+            },
+          ],
+          this.usecaseName,
+        );
+      }
+
       const user = await this.repository.createOne({
         cpf,
         email,

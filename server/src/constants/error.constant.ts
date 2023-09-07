@@ -13,15 +13,15 @@ export const ErrorConstant = {
   },
   notFound: {
     code: 404,
-    message: 'This resource was not found',
+    message: 'This entity was not found',
   },
   alreadyExists: {
     code: 409,
-    message: 'This resource already exists',
+    message: 'This entity already exists',
   },
   unprocessable: {
     code: 422,
-    message: 'This resource was not completely processed',
+    message: 'This entity was not completely processed',
   },
   tooManyRequest: {
     code: 429,

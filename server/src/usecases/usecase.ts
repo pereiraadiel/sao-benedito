@@ -14,6 +14,6 @@ export abstract class Usecase {
     this.logger.error(error);
     this.logger.error(context);
     if (error instanceof AppException) throw error;
-    throw new UnexpectedException(context, this.usecaseName);
+    else throw new UnexpectedException(context, this.usecaseName);
   }
 }

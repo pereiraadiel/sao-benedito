@@ -16,20 +16,48 @@ export class UsersConcreteRepository implements UsersRepository {
 
     return data;
   }
-  findOneById(id: string): Promise<UserEntity> {
-    console.warn(id);
-    throw new Error('Method not implemented.');
+
+  async findOneById(id: string): Promise<UserEntity> {
+    const data = await this.database.user.findUnique({
+      where: {
+        id,
+      },
+    });
+    return data;
   }
-  findOneByEmail(email: string): Promise<UserEntity> {
-    console.warn(email);
-    throw new Error('Method not implemented.');
+
+  async findOneByEmail(email: string): Promise<UserEntity> {
+    const data = await this.database.user.findUnique({
+      where: {
+        email,
+      },
+    });
+    return data;
   }
-  findOneByCpf(cpf: string): Promise<UserEntity> {
-    console.warn(cpf);
-    throw new Error('Method not implemented.');
+
+  async findOneByCpf(cpf: string): Promise<UserEntity> {
+    const data = await this.database.user.findUnique({
+      where: {
+        cpf,
+      },
+    });
+    return data;
   }
-  updateOne(data: UpdateOneUserDAO): Promise<UserEntity> {
-    console.warn(data);
-    throw new Error('Method not implemented.');
+
+  async updateOne(dao: UpdateOneUserDAO): Promise<UserEntity> {
+    const updateDao = {
+      ...dao,
+      id: undefined,
+      updatedAt: new Date(),
+    };
+
+    const data = await this.database.user.update({
+      where: {
+        id: dao.id,
+      },
+      data: updateDao,
+    });
+
+    return data;
   }
 }
