@@ -9,6 +9,6 @@ export class HashService {
   }
 
   async verify(value: string, hash: string) {
-    return compare(value, hash);
+    return compare(HashUtil.hash(value), hash);
   }
 }

@@ -6,6 +6,7 @@ import { USERS_REPOSITORY } from '../repositories/users/users.repository';
 import { UsersConcreteRepository } from '../repositories/users/users.concrete.repository';
 import { UpdateOneUserPasswordUsecase } from '../usecases/users/updateOneUserPassword.usecase';
 import { MailModule } from './mail.module';
+import { SignUserInUsecase } from '../usecases/auth/signUserIn.usecase';
 
 @Module({
   controllers: [AuthController],
@@ -14,6 +15,7 @@ import { MailModule } from './mail.module';
     RequestResetUserPasswordUsecase,
     ResetUserPasswordUsecase,
     UpdateOneUserPasswordUsecase,
+    SignUserInUsecase,
     {
       provide: USERS_REPOSITORY,
       useClass: UsersConcreteRepository,
