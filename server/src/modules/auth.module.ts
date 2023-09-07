@@ -5,9 +5,11 @@ import { ResetUserPasswordUsecase } from '../usecases/auth/resetUserPassword.use
 import { USERS_REPOSITORY } from '../repositories/users/users.repository';
 import { UsersConcreteRepository } from '../repositories/users/users.concrete.repository';
 import { UpdateOneUserPasswordUsecase } from '../usecases/users/updateOneUserPassword.usecase';
+import { MailModule } from './mail.module';
 
 @Module({
   controllers: [AuthController],
+  imports: [MailModule],
   providers: [
     RequestResetUserPasswordUsecase,
     ResetUserPasswordUsecase,

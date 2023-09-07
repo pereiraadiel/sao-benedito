@@ -6,6 +6,7 @@ import { HashModule } from './hash.module';
 import { UsersModule } from './users.module';
 import { RedisModule } from './redis.module';
 import { AuthModule } from './auth.module';
+import { MailModule } from './mail.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './auth.module';
     DatabaseModule,
     RedisModule,
     HashModule,
+    MailModule,
     AuthModule,
     UsersModule,
   ],
