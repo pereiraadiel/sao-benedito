@@ -4,7 +4,7 @@ import { UsersRepository } from '../../repositories/users/users.repository';
 import { Usecase } from '../usecase';
 import { HashService } from '../../services/hash.service';
 import { Inject, Injectable } from '@nestjs/common';
-import { AlreadyExistsException } from '../../exceptions/alreadyExists.expection';
+import { AlreadyExistsException } from '../../exceptions/alreadyExists.exception';
 
 @Injectable()
 export class CreateOneUserUsecase extends Usecase {

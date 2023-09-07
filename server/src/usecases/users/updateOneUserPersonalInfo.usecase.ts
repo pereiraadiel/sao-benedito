@@ -3,7 +3,7 @@ import { UsersRepository } from '../../repositories/users/users.repository';
 import { Usecase } from '../usecase';
 import { Inject, Injectable } from '@nestjs/common';
 import { UpdateOneUserPersonalInfoDTO } from '../../dtos/users/updateOneUserPersonalInfo.dto';
-import { NotFoundException } from '../../exceptions/notFound.expection';
+import { NotFoundException } from '../../exceptions/notFound.exception';
 
 @Injectable()
 export class UpdateOneUserPersonalInfoUsecase extends Usecase {

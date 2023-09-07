@@ -1,5 +1,5 @@
 import { AppException, ExceptionContext } from '../exceptions/app.exception';
-import { UnexpectedException } from '../exceptions/unexpected.expection';
+import { UnexpectedException } from '../exceptions/unexpected.exception';
 import { LoggerUtil } from '../utils/logger.util';
 
 export abstract class Usecase {

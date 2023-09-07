@@ -2,23 +2,25 @@ import { USERS_REPOSITORY } from './../../repositories/users/users.repository';
 import { UsersRepository } from '../../repositories/users/users.repository';
 import { Usecase } from '../usecase';
 import { Inject, Injectable } from '@nestjs/common';
+import { UpdateOneUserPasswordDTO } from '../../dtos/users/updateOneUserPassword.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
-import { GetOneUserByIdDTO } from '../../dtos/users/getOneUserById.dto';
+import { HashService } from '../../services/hash.service';
 
 @Injectable()
-export class GetOneUserByIdUsecase extends Usecase {
-  protected usecaseName = 'Get One User By Id Usecase';
+export class UpdateOneUserPasswordUsecase extends Usecase {
+  protected usecaseName = 'Update One User Password Usecase';
 
   constructor(
     @Inject(USERS_REPOSITORY)
     private readonly repository: UsersRepository,
+    private readonly hashService: HashService,
   ) {
     super();
   }
 
-  async handle({ id }: GetOneUserByIdDTO) {
+  async handle({ password, id }: UpdateOneUserPasswordDTO) {
     try {
-      const user = await this.repository.findOneById(id);
+      let user = await this.repository.findOneById(id);
       if (!user) {
         throw new NotFoundException(
           [
@@ -29,6 +31,11 @@ export class GetOneUserByIdUsecase extends Usecase {
           this.usecaseName,
         );
       }
+
+      user = await this.repository.updateOne({
+        id,
+        passwordHash: await this.hashService.hash(password),
+      });
 
       delete user.passwordHash;
 
