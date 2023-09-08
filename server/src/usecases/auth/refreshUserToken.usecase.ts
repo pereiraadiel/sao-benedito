@@ -1,7 +1,8 @@
-import { Usecase } from '../usecase';
 import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+
 import { UnauthorizedException } from '../../exceptions/unauthorized.exception';
+import { Usecase } from '../usecase';
 import {
   USERS_REPOSITORY,
   UsersRepository,
@@ -48,7 +49,7 @@ export class RefreshUserTokenUsecase extends Usecase {
       60 * 60 * 72, // 72 hours or 3 days
     );
     await this.redisService.setValue(
-      `@token:access:${accessToken}`,
+      `@token:access:${HashUtil.hash(accessToken)}`,
       user.id,
       Number(AuthConstant.jwt.expiresIn),
     );
@@ -107,7 +108,9 @@ export class RefreshUserTokenUsecase extends Usecase {
         );
       }
 
-      await this.redisService.deleteValue(`@token:access:${accessToken}`);
+      await this.redisService.deleteValue(
+        `@token:access:${HashUtil.hash(accessToken)}`,
+      );
       await this.redisService.deleteValue(`@token:refresh:${refreshToken}`);
       delete user.passwordHash;
 

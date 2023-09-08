@@ -50,7 +50,7 @@ export class SignUserInUsecase extends Usecase {
       60 * 60 * 72, // 72 hours or 3 days
     );
     await this.redisService.setValue(
-      `@token:access:${accessToken}`,
+      `@token:access:${HashUtil.hash(accessToken)}`,
       user.id,
       Number(AuthConstant.jwt.expiresIn),
     );

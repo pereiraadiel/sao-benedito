@@ -8,6 +8,7 @@ import { UnauthorizedException } from '../exceptions/unauthorized.exception';
 import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 import { RedisService } from '../services/redis.service';
+import { HashUtil } from '../utils/hash.util';
 
 @Injectable()
 export class AuthInterceptor implements NestInterceptor {
@@ -36,14 +37,28 @@ export class AuthInterceptor implements NestInterceptor {
       if (token) {
         request.token = token;
         const isValidToken = await this.redisService.getRawValue(
-          `@token:access:${token}`,
+          `@token:access:${HashUtil.hash(token)}`,
         );
         if (!isValidToken) {
-          throw new UnauthorizedException([], this.interceptorName);
+          throw new UnauthorizedException(
+            [
+              {
+                token: 'invalid or expired',
+              },
+            ],
+            this.interceptorName,
+          );
         }
         return next.handle();
       }
     }
-    throw new UnauthorizedException([], this.interceptorName);
+    throw new UnauthorizedException(
+      [
+        {
+          token: 'invalid or expired',
+        },
+      ],
+      this.interceptorName,
+    );
   }
 }

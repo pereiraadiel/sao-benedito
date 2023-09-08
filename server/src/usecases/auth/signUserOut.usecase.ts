@@ -1,3 +1,4 @@
+import { HashUtil } from './../../utils/hash.util';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
@@ -21,7 +22,9 @@ export class SignUserOutUsecase extends Usecase {
       const { refreshToken } = this.jwtService.decode(accessToken) as any;
 
       await this.redisService.deleteValue(`@token:refresh:${refreshToken}`);
-      await this.redisService.deleteValue(`@token:access:${accessToken}`);
+      await this.redisService.deleteValue(
+        `@token:access:${HashUtil.hash(accessToken)}`,
+      );
     } catch (error) {
       this.exceptionHandler(error, [
         {
