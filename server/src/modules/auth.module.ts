@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
+
 import { AuthController } from '../controllers/auth/auth.controller';
 import { RequestResetUserPasswordUsecase } from '../usecases/auth/requestResetUserPasswordToken.usecase';
 import { ResetUserPasswordUsecase } from '../usecases/auth/resetUserPassword.usecase';
@@ -7,10 +9,18 @@ import { UsersConcreteRepository } from '../repositories/users/users.concrete.re
 import { UpdateOneUserPasswordUsecase } from '../usecases/users/updateOneUserPassword.usecase';
 import { MailModule } from './mail.module';
 import { SignUserInUsecase } from '../usecases/auth/signUserIn.usecase';
+import { AuthConstant } from '../constants/auth.constant';
 
 @Module({
   controllers: [AuthController],
-  imports: [MailModule],
+  imports: [
+    MailModule,
+    JwtModule.register({
+      global: true,
+      secret: AuthConstant.jwt.secret,
+      signOptions: { expiresIn: AuthConstant.jwt.expiresIn + 's' },
+    }),
+  ],
   providers: [
     RequestResetUserPasswordUsecase,
     ResetUserPasswordUsecase,

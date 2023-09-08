@@ -10,4 +10,12 @@ export const HashUtil = {
     md5hash.destroy();
     return Buffer.from(stepTwo).toString('base64');
   },
+
+  encode: (value: string) => {
+    return Buffer.from(value, 'ascii').toString('base64');
+  },
+
+  decode: (value: string) => {
+    return Buffer.from(value, 'base64').toString('ascii');
+  },
 };
