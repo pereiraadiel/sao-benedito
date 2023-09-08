@@ -7,11 +7,15 @@ import {
 import { UnauthorizedException } from '../exceptions/unauthorized.exception';
 import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
+import { RedisService } from '../services/redis.service';
 
 @Injectable()
 export class AuthInterceptor implements NestInterceptor {
-  private interceptorName = 'AuthInterceptor';
-  constructor(private readonly reflector: Reflector) {}
+  private interceptorName = 'Auth Interceptor';
+  constructor(
+    private readonly reflector: Reflector,
+    private readonly redisService: RedisService,
+  ) {}
 
   async intercept(context: ExecutionContext, next: CallHandler) {
     const request = context.switchToHttp().getRequest();
@@ -31,6 +35,12 @@ export class AuthInterceptor implements NestInterceptor {
       const [, token] = headerAuthorization.split('Bearer ');
       if (token) {
         request.token = token;
+        const isValidToken = await this.redisService.getRawValue(
+          `@token:access:${token}`,
+        );
+        if (!isValidToken) {
+          throw new UnauthorizedException([], this.interceptorName);
+        }
         return next.handle();
       }
     }

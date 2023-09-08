@@ -11,6 +11,7 @@ import { MailModule } from './mail.module';
 import { SignUserInUsecase } from '../usecases/auth/signUserIn.usecase';
 import { AuthConstant } from '../constants/auth.constant';
 import { RefreshUserTokenUsecase } from '../usecases/auth/refreshUserToken.usecase';
+import { SignUserOutUsecase } from '../usecases/auth/signUserOut.usecase';
 
 @Module({
   controllers: [AuthController],
@@ -28,6 +29,7 @@ import { RefreshUserTokenUsecase } from '../usecases/auth/refreshUserToken.useca
     RefreshUserTokenUsecase,
     UpdateOneUserPasswordUsecase,
     SignUserInUsecase,
+    SignUserOutUsecase,
     {
       provide: USERS_REPOSITORY,
       useClass: UsersConcreteRepository,

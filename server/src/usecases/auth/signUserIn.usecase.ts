@@ -63,7 +63,6 @@ export class SignUserInUsecase extends Usecase {
       const user = await this.usersRepository.findOneByEmail(email);
 
       if (!user) {
-        console.warn('not found');
         throw new UnauthorizedException(
           [
             {
@@ -79,7 +78,6 @@ export class SignUserInUsecase extends Usecase {
       );
 
       if (!isPasswordCorrect) {
-        console.warn('incorrect');
         throw new UnauthorizedException(
           [
             {
