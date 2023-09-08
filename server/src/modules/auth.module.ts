@@ -10,6 +10,7 @@ import { UpdateOneUserPasswordUsecase } from '../usecases/users/updateOneUserPas
 import { MailModule } from './mail.module';
 import { SignUserInUsecase } from '../usecases/auth/signUserIn.usecase';
 import { AuthConstant } from '../constants/auth.constant';
+import { RefreshUserTokenUsecase } from '../usecases/auth/refreshUserToken.usecase';
 
 @Module({
   controllers: [AuthController],
@@ -24,6 +25,7 @@ import { AuthConstant } from '../constants/auth.constant';
   providers: [
     RequestResetUserPasswordUsecase,
     ResetUserPasswordUsecase,
+    RefreshUserTokenUsecase,
     UpdateOneUserPasswordUsecase,
     SignUserInUsecase,
     {

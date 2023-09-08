@@ -5,6 +5,7 @@ import { Usecase } from '../usecase';
 import { HashService } from '../../services/hash.service';
 import { Inject, Injectable } from '@nestjs/common';
 import { AlreadyExistsException } from '../../exceptions/alreadyExists.exception';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class CreateOneUserUsecase extends Usecase {
@@ -14,18 +15,15 @@ export class CreateOneUserUsecase extends Usecase {
     @Inject(USERS_REPOSITORY)
     private readonly repository: UsersRepository,
     private readonly hashService: HashService,
+    private readonly jwtService: JwtService,
   ) {
     super();
   }
 
-  async handle({
-    cpf,
-    email,
-    firstName,
-    lastName,
-    password,
-    phone,
-  }: CreateOneUserDTO) {
+  async handle(
+    { cpf, email, firstName, lastName, password, phone }: CreateOneUserDTO,
+    token: string,
+  ) {
     try {
       const alreadyExistsWithEmail =
         await this.repository.findOneByEmail(email);

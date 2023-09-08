@@ -11,7 +11,7 @@ export const TokenUtil = {
         .toString()
         .concat(user.email)
         .concat(user.id)
-        .concat(user.updatedAt.toString()),
+        .concat(user.updatedAt?.toString()),
     ).replaceAll('=', '');
   },
 
@@ -24,7 +24,7 @@ export const TokenUtil = {
         .toString()
         .concat(user.email)
         .concat(user.id)
-        .concat(user.updatedAt.toString())
+        .concat(user.updatedAt?.toString())
         .concat(authToken),
     ).replaceAll('=', '');
   },

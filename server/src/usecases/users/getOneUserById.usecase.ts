@@ -4,6 +4,7 @@ import { Usecase } from '../usecase';
 import { Inject, Injectable } from '@nestjs/common';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 import { GetOneUserByIdDTO } from '../../dtos/users/getOneUserById.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class GetOneUserByIdUsecase extends Usecase {
@@ -12,11 +13,12 @@ export class GetOneUserByIdUsecase extends Usecase {
   constructor(
     @Inject(USERS_REPOSITORY)
     private readonly repository: UsersRepository,
+    private readonly jwtService: JwtService,
   ) {
     super();
   }
 
-  async handle({ id }: GetOneUserByIdDTO) {
+  async handle({ id }: GetOneUserByIdDTO, token: string) {
     try {
       const user = await this.repository.findOneById(id);
       if (!user) {

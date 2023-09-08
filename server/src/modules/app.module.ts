@@ -7,6 +7,9 @@ import { UsersModule } from './users.module';
 import { RedisModule } from './redis.module';
 import { AuthModule } from './auth.module';
 import { MailModule } from './mail.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from '../guards/auth.guard';
+import { AuthInterceptorModule } from './authInterceptor.module';
 
 @Module({
   imports: [
@@ -18,7 +21,9 @@ import { MailModule } from './mail.module';
     HashModule,
     MailModule,
     AuthModule,
+    AuthInterceptorModule,
     UsersModule,
   ],
+  providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })
 export class AppModule {}

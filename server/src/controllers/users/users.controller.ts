@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Req,
+  UseInterceptors,
+} from '@nestjs/common';
 
 import { CreateOneUserDTO } from '../../dtos/users/createOneUser.dto';
 import { GetOneUserByIdDTO } from '../../dtos/users/getOneUserById.dto';
@@ -12,7 +21,10 @@ import { UpdateOneUserCpfUsecase } from '../../usecases/users/updateOneUserCpf.u
 import { UpdateOneUserEmailUsecase } from '../../usecases/users/updateOneUserEmail.usecase';
 import { UpdateOneUserPhoneUsecase } from '../../usecases/users/updateOneUserPhone.usecase';
 import { UpdateOneUserPersonalInfoUsecase } from '../../usecases/users/updateOneUserPersonalInfo.usecase';
+import { AuthInterceptor } from '../../interceptors/auth.interceptor';
+import { Request } from 'express';
 
+@UseInterceptors(AuthInterceptor)
 @Controller('/users')
 export class UsersController {
   constructor(
@@ -25,56 +37,75 @@ export class UsersController {
   ) {}
 
   @Post()
-  createOneUser(@Body() request: CreateOneUserDTO) {
-    return this.createOneUserUsecase.handle(request);
+  createOneUser(@Body() request: CreateOneUserDTO, @Req() { token }: Request) {
+    return this.createOneUserUsecase.handle(request, token);
   }
 
   @Get('/:id')
-  getOneUserById(@Param() request: GetOneUserByIdDTO) {
-    return this.getOneUserByIdUsecase.handle(request);
+  getOneUserById(
+    @Param() request: GetOneUserByIdDTO,
+    @Req() { token }: Request,
+  ) {
+    return this.getOneUserByIdUsecase.handle(request, token);
   }
 
   @Patch('/:id')
   updateOneUserPersonalInfo(
     @Param() { id }: GetOneUserByIdDTO,
     @Body() request: UpdateOneUserPersonalInfoDTO,
+    @Req() { token }: Request,
   ) {
-    return this.updateOneUserPersonalInfoUsecase.handle({
-      id,
-      ...request,
-    });
+    return this.updateOneUserPersonalInfoUsecase.handle(
+      {
+        id,
+        ...request,
+      },
+      token,
+    );
   }
 
   @Patch('/:id/cpf')
   updateOneUserCpf(
     @Param() { id }: GetOneUserByIdDTO,
     @Body() request: UpdateOneUserCpfDTO,
+    @Req() { token }: Request,
   ) {
-    return this.updateOneUserCpfUsecase.handle({
-      id,
-      ...request,
-    });
+    return this.updateOneUserCpfUsecase.handle(
+      {
+        id,
+        ...request,
+      },
+      token,
+    );
   }
 
   @Patch('/:id/email')
   updateOneUserEmail(
     @Param() { id }: GetOneUserByIdDTO,
     @Body() request: UpdateOneUserEmailDTO,
+    @Req() { token }: Request,
   ) {
-    return this.updateOneUserEmailUsecase.handle({
-      id,
-      ...request,
-    });
+    return this.updateOneUserEmailUsecase.handle(
+      {
+        id,
+        ...request,
+      },
+      token,
+    );
   }
 
   @Patch('/:id/phone')
   updateOneUserPhone(
     @Param() { id }: GetOneUserByIdDTO,
     @Body() request: UpdateOneUserPhoneDTO,
+    @Req() { token }: Request,
   ) {
-    return this.updateOneUserPhoneUsecase.handle({
-      id,
-      ...request,
-    });
+    return this.updateOneUserPhoneUsecase.handle(
+      {
+        id,
+        ...request,
+      },
+      token,
+    );
   }
 }

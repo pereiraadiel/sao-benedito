@@ -5,6 +5,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { UpdateOneUserEmailDTO } from '../../dtos/users/updateOneUserEmail.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 import { AlreadyExistsException } from '../../exceptions/alreadyExists.exception';
+import { JwtService } from '@nestjs/jwt';
+import { UnauthorizedException } from '../../exceptions/unauthorized.exception';
 
 @Injectable()
 export class UpdateOneUserEmailUsecase extends Usecase {
@@ -13,12 +15,25 @@ export class UpdateOneUserEmailUsecase extends Usecase {
   constructor(
     @Inject(USERS_REPOSITORY)
     private readonly repository: UsersRepository,
+    private readonly jwtService: JwtService,
   ) {
     super();
   }
 
-  async handle({ email, id }: UpdateOneUserEmailDTO) {
+  async handle({ email, id }: UpdateOneUserEmailDTO, token: string) {
     try {
+      const { id: userId } = this.jwtService.decode(token) as any;
+      if (!(id === userId)) {
+        throw new UnauthorizedException(
+          [
+            {
+              id,
+            },
+          ],
+          this.usecaseName,
+        );
+      }
+
       let user = await this.repository.findOneById(id);
       if (!user) {
         throw new NotFoundException(
