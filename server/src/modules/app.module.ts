@@ -12,6 +12,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { AuthInterceptorModule } from './authInterceptor.module';
 import { MediasModule } from './medias.module';
 import { StorageModule } from './storage.module';
+import { CommunitiesModule } from './communities.module';
 
 @Module({
   imports: [
@@ -23,10 +24,11 @@ import { StorageModule } from './storage.module';
     HashModule,
     MailModule,
     AuthModule,
+    StorageModule,
     AuthInterceptorModule,
     UsersModule,
     MediasModule,
-    StorageModule,
+    CommunitiesModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })

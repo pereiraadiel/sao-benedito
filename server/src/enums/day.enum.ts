@@ -5,7 +5,7 @@ export const DayEnum = {
   quarta: 'Quarta',
   quinta: 'Quinta',
   sexta: 'Sexta',
-  sabado: 'Sábado',
+  sabado: 'Sabado',
 } as const;
 
 export type DayEnum = (typeof DayEnum)[keyof typeof DayEnum];

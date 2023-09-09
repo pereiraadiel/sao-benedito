@@ -13,9 +13,9 @@ export class CommunityEntity extends Entity {
   addressDistrict: string;
   addressMapLink: string;
 
-  masses: MassEntity[];
-  confessions: ConfessionEntity[];
-  secretaryTimes: SecretaryTimeEntity[];
+  masses?: MassEntity[];
+  confessions?: ConfessionEntity[];
+  secretaryTimes?: SecretaryTimeEntity[];
 
   constructor(entity: Omit<CommunityEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);

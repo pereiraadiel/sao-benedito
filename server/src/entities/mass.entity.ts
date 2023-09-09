@@ -7,7 +7,7 @@ export class MassEntity extends Entity {
   time: string;
   day: DayEnum;
 
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   constructor(entity: Omit<MassEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);

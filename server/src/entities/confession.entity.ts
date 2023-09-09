@@ -7,7 +7,7 @@ export class ConfessionEntity extends Entity {
   finalTime: string;
   day: DayEnum;
 
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   constructor(entity: Omit<ConfessionEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);

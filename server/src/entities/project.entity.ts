@@ -7,8 +7,8 @@ export class ProjectEntity extends Entity {
   description: string;
   finishedIn?: Date;
 
-  medias: MediaEntity[];
-  community: CommunityEntity;
+  medias?: MediaEntity[];
+  community?: CommunityEntity;
 
   constructor(entity: Omit<ProjectEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);

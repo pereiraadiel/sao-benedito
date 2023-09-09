@@ -7,7 +7,7 @@ export class SecretaryTimeEntity extends Entity {
   finalTime: string;
   day: DayEnum;
 
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   constructor(
     entity: Omit<SecretaryTimeEntity, 'id' | 'createdAt'>,

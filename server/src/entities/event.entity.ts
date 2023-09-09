@@ -7,7 +7,7 @@ export class EventEntity extends Entity {
   description: string;
 
   medias: MediaEntity[];
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   constructor(entity: Omit<EventEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
