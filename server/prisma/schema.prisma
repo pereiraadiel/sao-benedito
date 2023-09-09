@@ -90,13 +90,14 @@ enum MediaTypeEnum {
 }
 
 model Media {
-  id        String        @id @map("_id")
-  source    String
-  type      MediaTypeEnum
-  projectId String?
-  eventId   String?
-  createdAt DateTime      @default(now()) @map("created_at")
-  updatedAt DateTime?     @map("updated_at")
+  id              String        @id @map("_id")
+  alternativeText String
+  source          String
+  type            MediaTypeEnum
+  projectId       String?
+  eventId         String?
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime?     @map("updated_at")
 
   event   Event?   @relation(fields: [eventId], references: [id])
   project Project? @relation(fields: [projectId], references: [id])
