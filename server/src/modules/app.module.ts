@@ -10,6 +10,8 @@ import { MailModule } from './mail.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from '../guards/auth.guard';
 import { AuthInterceptorModule } from './authInterceptor.module';
+import { MediasModule } from './medias.module';
+import { StorageModule } from './storage.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { AuthInterceptorModule } from './authInterceptor.module';
     AuthModule,
     AuthInterceptorModule,
     UsersModule,
+    MediasModule,
+    StorageModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })
