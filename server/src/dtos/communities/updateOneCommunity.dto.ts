@@ -1,10 +1,6 @@
-import { IsEmail, IsHexadecimal, IsOptional, Length } from 'class-validator';
+import { IsEmail, IsOptional, Length } from 'class-validator';
 
 export class UpdateOneCommunityDTO {
-  @IsHexadecimal()
-  @Length(32, 32)
-  id: string;
-
   @IsOptional()
   @Length(5, 255)
   name?: string;
@@ -36,4 +32,6 @@ export class UpdateOneCommunityDTO {
   @IsOptional()
   @Length(5, 255)
   addressMapLink?: string;
+
+  id?: string;
 }

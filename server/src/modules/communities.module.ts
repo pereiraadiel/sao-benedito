@@ -6,12 +6,14 @@ import { CreateOneCommunityUsecase } from '../usecases/communities/createOneComm
 import { CommunitiesController } from '../controllers/communities/communities.controller';
 import { GetAllCommunitiesUsecase } from '../usecases/communities/getAllCommunities.usecase';
 import { DeleteOneCommunityUsecase } from '../usecases/communities/deleteOneCommunity.usecase';
+import { UpdateOneCommunityUsecase } from '../usecases/communities/updateOneCommunity.usecase';
 
 @Module({
   controllers: [CommunitiesController],
   providers: [
     CreateOneCommunityUsecase,
     GetAllCommunitiesUsecase,
+    UpdateOneCommunityUsecase,
     DeleteOneCommunityUsecase,
     {
       provide: COMMUNITIES_REPOSITORY,
