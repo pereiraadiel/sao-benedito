@@ -10,6 +10,13 @@ export abstract class Usecase {
     this.logger = new LoggerUtil();
   }
 
+  protected buildPage<T>(items: T[]) {
+    return {
+      items,
+      total: items.length,
+    };
+  }
+
   protected exceptionHandler(error: any, context: ExceptionContext[] = []) {
     this.logger.error(error);
     this.logger.error(context);

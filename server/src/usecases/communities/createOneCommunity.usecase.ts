@@ -8,7 +8,7 @@ import { CreateOneCommunityDTO } from '../../dtos/communities/createOneCommunity
 
 @Injectable()
 export class CreateOneCommunityUsecase extends Usecase {
-  protected usecaseName = 'Create An Community Usecase';
+  protected usecaseName = 'Create One Community Usecase';
 
   constructor(
     @Inject(COMMUNITIES_REPOSITORY)

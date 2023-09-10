@@ -5,12 +5,14 @@ import { CommunitiesConcreteRepository } from '../repositories/communities/commu
 import { CreateOneCommunityUsecase } from '../usecases/communities/createOneCommunity.usecase';
 import { CommunitiesController } from '../controllers/communities/communities.controller';
 import { GetAllCommunitiesUsecase } from '../usecases/communities/getAllCommunities.usecase';
+import { DeleteOneCommunityUsecase } from '../usecases/communities/deleteOneCommunity.usecase';
 
 @Module({
   controllers: [CommunitiesController],
   providers: [
     CreateOneCommunityUsecase,
     GetAllCommunitiesUsecase,
+    DeleteOneCommunityUsecase,
     {
       provide: COMMUNITIES_REPOSITORY,
       useClass: CommunitiesConcreteRepository,

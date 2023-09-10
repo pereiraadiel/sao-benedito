@@ -19,7 +19,8 @@ export class GetAllCommunitiesUsecase extends Usecase {
   async handle() {
     try {
       const communities = await this.communitiesRepository.findMany();
-      return communities;
+
+      return this.buildPage(communities);
     } catch (error) {
       this.exceptionHandler(error, []);
     }
