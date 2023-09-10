@@ -1,3 +1,4 @@
+import { GetOneCommunityByIdUsecase } from './../../usecases/communities/getOneCommunityById.usecase';
 import { DeleteOneCommunityDTO } from './../../dtos/communities/deleteOneCommunity.dto';
 import {
   Body,
@@ -16,13 +17,14 @@ import { CreateOneCommunityUsecase } from './../../usecases/communities/createOn
 import { DeleteOneCommunityUsecase } from '../../usecases/communities/deleteOneCommunity.usecase';
 import { UpdateOneCommunityUsecase } from '../../usecases/communities/updateOneCommunity.usecase';
 import { UpdateOneCommunityDTO } from '../../dtos/communities/updateOneCommunity.dto';
-import { GetOneCommunityDTO } from '../../dtos/communities/getOneCommunity.dto';
+import { GetOneCommunityByIdDTO } from '../../dtos/communities/getOneCommunityById.dto';
 
 @Controller('/communities')
 export class CommunitiesController {
   constructor(
     private readonly createOneCommunityUsecase: CreateOneCommunityUsecase,
     private readonly getAllCommunitiesUseCase: GetAllCommunitiesUsecase,
+    private readonly getOneCommunityByIdUsecase: GetOneCommunityByIdUsecase,
     private readonly updateOneCommunityUseCase: UpdateOneCommunityUsecase,
     private readonly deleteOneCommunityUsecase: DeleteOneCommunityUsecase,
   ) {}
@@ -38,10 +40,16 @@ export class CommunitiesController {
     return this.getAllCommunitiesUseCase.handle();
   }
 
+  @Get('/:id')
+  @Public()
+  getOneCommunity(@Param() request: GetOneCommunityByIdDTO) {
+    return this.getOneCommunityByIdUsecase.handle(request);
+  }
+
   @Patch('/:id')
   updateOneCommunity(
     @Body() request: UpdateOneCommunityDTO,
-    @Param() { id }: GetOneCommunityDTO,
+    @Param() { id }: GetOneCommunityByIdDTO,
   ) {
     return this.updateOneCommunityUseCase.handle({
       ...request,
