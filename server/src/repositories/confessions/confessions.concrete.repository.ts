@@ -72,7 +72,9 @@ export class ConfessionsConcreteRepository implements ConfessionsRepository {
 
   async updateOne(dao: UpdateOneConfessionDAO): Promise<ConfessionEntity> {
     const updateDao = {
-      ...dao,
+      day: dao.day,
+      initialTime: dao.initialTime,
+      finalTime: dao.finalTime,
       id: undefined,
       communityId: undefined,
       updatedAt: new Date(),

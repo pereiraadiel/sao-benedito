@@ -39,6 +39,7 @@ export class UpdateOneConfessionUsecase extends Usecase {
 
       return confession;
     } catch (error) {
+      console.error(error);
       this.exceptionHandler(error, [
         {
           id: dto.id,
