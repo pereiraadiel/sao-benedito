@@ -19,7 +19,11 @@ export class SignUserOutUsecase extends Usecase {
 
   async handle({ accessToken }: SignUserOutDTO) {
     try {
-      const { refreshToken } = this.jwtService.decode(accessToken) as any;
+      const { id } = this.jwtService.decode(accessToken) as any;
+      const refreshToken = HashUtil.hash(`${id}:${accessToken}`).replaceAll(
+        '=',
+        '',
+      );
 
       await this.redisService.deleteValue(`@token:refresh:${refreshToken}`);
       await this.redisService.deleteValue(

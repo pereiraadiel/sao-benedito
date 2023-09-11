@@ -10,8 +10,8 @@ import { HashService } from '../../services/hash.service';
 import { SignUserInDTO } from '../../dtos/auth/signUserIn.dto';
 import { RedisService } from '../../services/redis.service';
 import { HashUtil } from '../../utils/hash.util';
-import { UserEntity } from '../../entities/user.entity';
 import { AuthConstant } from '../../constants/auth.constant';
+import { Payload } from '../../interfaces/token.interface';
 
 @Injectable()
 export class SignUserInUsecase extends Usecase {
@@ -27,31 +27,20 @@ export class SignUserInUsecase extends Usecase {
     super();
   }
 
-  private async generateToken(user: UserEntity) {
-    const date = new Date();
-    const refreshToken = HashUtil.hash(
-      `${user.id}:${date.getTime()}:${Math.random()}`,
-    ).replaceAll('=', '');
-
-    const payload = {
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      cpf: HashUtil.encode(user.cpf),
-      email: HashUtil.encode(user.email),
-      refreshToken,
-    };
-
+  private async generateToken(payload: Payload) {
     const accessToken = this.jwtService.sign(payload);
+    const refreshToken = HashUtil.hash(
+      `${payload.id}:${accessToken}`,
+    ).replaceAll('=', '');
 
     await this.redisService.setValue(
       `@token:refresh:${refreshToken}`,
-      user.id,
+      payload.id,
       60 * 60 * 72, // 72 hours or 3 days
     );
     await this.redisService.setValue(
       `@token:access:${HashUtil.hash(accessToken)}`,
-      user.id,
+      payload.id,
       Number(AuthConstant.jwt.expiresIn),
     );
 
