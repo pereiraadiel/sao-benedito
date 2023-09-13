@@ -1,6 +1,8 @@
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { AppException, ExceptionContext } from '../exceptions/app.exception';
 import { UnexpectedException } from '../exceptions/unexpected.exception';
 import { LoggerUtil } from '../utils/logger.util';
+import { UnprocessableException } from '../exceptions/unprocessable.exception';
 
 export abstract class Usecase {
   protected logger: LoggerUtil;
@@ -21,6 +23,22 @@ export abstract class Usecase {
     this.logger.error(error);
     this.logger.error(context);
     if (error instanceof AppException) throw error;
-    else throw new UnexpectedException(context, this.usecaseName);
+    else if (error instanceof PrismaClientKnownRequestError) {
+      const messages = {
+        P2002: 'entity already exists',
+        P2025: 'entity required to conection was not found',
+      };
+      const message = messages[error.code] || 'Database integration failed';
+
+      throw new UnprocessableException(
+        [
+          {
+            message,
+          },
+          ...context,
+        ],
+        this.usecaseName,
+      );
+    } else throw new UnexpectedException(context, this.usecaseName);
   }
 }
