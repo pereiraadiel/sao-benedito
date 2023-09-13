@@ -34,8 +34,8 @@ export abstract class Usecase {
         [
           {
             message,
+            ...context[0],
           },
-          ...context,
         ],
         this.usecaseName,
       );
