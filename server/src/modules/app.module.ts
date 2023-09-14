@@ -15,6 +15,7 @@ import { StorageModule } from './storage.module';
 import { CommunitiesModule } from './communities.module';
 import { ConfessionsModule } from './confessions.module';
 import { SecretaryTimesModule } from './secretaryTimes.module';
+import { MassesModule } from './masses.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { SecretaryTimesModule } from './secretaryTimes.module';
     MediasModule,
     CommunitiesModule,
     ConfessionsModule,
+    MassesModule,
     SecretaryTimesModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],

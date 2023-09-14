@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Usecase } from '../usecase';
-import { GetOneUserByIdDTO } from '../../dtos/users/getOneUserById.dto';
+import { GetOneSecretaryTimeByIdDTO } from '../../dtos/secretaryTimes/getOneSecretaryTimeById.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 import {
   SECRETARY_TIMES_REPOSITORY,
@@ -18,7 +18,7 @@ export class GetOneSecretaryTimeByIdUsecase extends Usecase {
     super();
   }
 
-  async handle(dto: GetOneUserByIdDTO) {
+  async handle(dto: GetOneSecretaryTimeByIdDTO) {
     try {
       const secretaryTime = await this.secretaryTimesRepository.findOneId(
         dto.id,

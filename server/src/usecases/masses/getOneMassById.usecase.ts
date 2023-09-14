@@ -1,26 +1,26 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Usecase } from '../usecase';
-import { GetOneConfessionByIdDTO } from '../../dtos/confessions/getOneConfessionById.dto';
+import { GetOneMassByIdDTO } from '../../dtos/masses/getOneMassById.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 import {
-  CONFESSIONS_REPOSITORY,
-  ConfessionsRepository,
-} from '../../repositories/confessions/confessions.repository';
+  MASSES_REPOSITORY,
+  MassesRepository,
+} from '../../repositories/masses/masses.repository';
 
 @Injectable()
-export class GetOneConfessionByIdUsecase extends Usecase {
-  protected usecaseName = 'Get One Confession By Id Usecase';
+export class GetOneMassByIdUsecase extends Usecase {
+  protected usecaseName = 'Get One Mass By Id Usecase';
 
   constructor(
-    @Inject(CONFESSIONS_REPOSITORY)
-    private readonly confessionsRepository: ConfessionsRepository,
+    @Inject(MASSES_REPOSITORY)
+    private readonly massesRepository: MassesRepository,
   ) {
     super();
   }
 
-  async handle(dto: GetOneConfessionByIdDTO) {
+  async handle(dto: GetOneMassByIdDTO) {
     try {
-      const confession = await this.confessionsRepository.findOneId(dto.id);
+      const confession = await this.massesRepository.findOneId(dto.id);
       if (!confession) {
         throw new NotFoundException(
           [

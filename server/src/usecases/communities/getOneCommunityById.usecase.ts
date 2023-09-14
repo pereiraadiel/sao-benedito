@@ -4,7 +4,7 @@ import {
   COMMUNITIES_REPOSITORY,
   CommunitiesRepository,
 } from '../../repositories/communities/communities.repository';
-import { GetOneUserByIdDTO } from '../../dtos/users/getOneUserById.dto';
+import { GetOneCommunityByIdDTO } from '../../dtos/communities/getOneCommunityById.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class GetOneCommunityByIdUsecase extends Usecase {
     super();
   }
 
-  async handle(dto: GetOneUserByIdDTO) {
+  async handle(dto: GetOneCommunityByIdDTO) {
     try {
       const community = await this.communitiesRepository.findOneId(dto.id);
       if (!community) {
