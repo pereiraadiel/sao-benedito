@@ -57,7 +57,7 @@ export class RefreshUserTokenUsecase extends Usecase {
         throw new UnauthorizedException(
           [
             {
-              accessToken,
+              accessToken: 'invalid or expired',
             },
           ],
           this.usecaseName,
@@ -95,7 +95,7 @@ export class RefreshUserTokenUsecase extends Usecase {
     } catch (error) {
       this.exceptionHandler(error, [
         {
-          accessToken,
+          accessToken: 'invalid or expired',
         },
       ]);
     }

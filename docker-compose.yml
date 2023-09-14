@@ -9,25 +9,24 @@ services:
     networks:
       - net
 
-  # server:
-  #   build: ./server
-  #   container_name: server
-  #   environment:
-  #     - REDIS_URL=redis://redis
-  #   ports:
-  #     - 8008:3000
-  #   networks:
-  #     - net
+  server:
+    build: ./server
+    container_name: server
+    env_file: ./server/.env
+    ports:
+      - 8008:3000
+    networks:
+      - net
 
-  # client:
-  #   build: ./web
-  #   container_name: client
-  #   environment:
-  #     - NEXT_PUBLIC_API_BASE_URL=http://server:8008
-  #   ports:
-  #     - 8080:3000
-  #   networks:
-  #     - net
+  client:
+    build: ./web
+    container_name: client
+    environment:
+      - NG_APP_SERVER_URL=http://server:8008
+    ports:
+      - 8080:4200
+    networks:
+      - net
 
 networks:
   net:
