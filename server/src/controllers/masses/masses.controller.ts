@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 import { Public } from '../../decorators/public.decorator';
@@ -18,6 +19,7 @@ import { DeleteOneMassUsecase } from '../../usecases/masses/deleteOneMass.usecas
 import { UpdateOneMassUsecase } from '../../usecases/masses/updateOneMass.usecase';
 import { UpdateOneMassDTO } from '../../dtos/masses/updateOneMass.dto';
 import { GetOneMassByIdDTO } from '../../dtos/masses/getOneMassById.dto';
+import { GetAllMassesDTO } from '../../dtos/masses/getAllMasses.dto';
 
 @Controller('/masses')
 export class MassesController {
@@ -36,8 +38,8 @@ export class MassesController {
 
   @Get()
   @Public()
-  getAllMasses() {
-    return this.getAllMassesUseCase.handle();
+  getAllMasses(@Query() request: GetAllMassesDTO) {
+    return this.getAllMassesUseCase.handle(request);
   }
 
   @Get('/:id')

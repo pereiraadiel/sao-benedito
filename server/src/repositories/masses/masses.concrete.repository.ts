@@ -4,6 +4,7 @@ import { CreateOneMassDAO } from '../../daos/masses/createOneMass.dao';
 import { UpdateOneMassDAO } from '../../daos/masses/updateOneMass.dao';
 import { MassEntity } from '../../entities/mass.entity';
 import { PrismaService } from '../../services/prisma.service';
+import { GetAllMassesDAO } from '../../daos/masses/getAllMasses.dao';
 
 @Injectable()
 export class MassesConcreteRepository implements MassesRepository {
@@ -55,7 +56,7 @@ export class MassesConcreteRepository implements MassesRepository {
     return mass as unknown as MassEntity;
   }
 
-  async findMany(): Promise<MassEntity[]> {
+  async findMany(dao: GetAllMassesDAO): Promise<MassEntity[]> {
     const masses = await this.database.mass.findMany({
       include: {
         community: {
@@ -65,6 +66,15 @@ export class MassesConcreteRepository implements MassesRepository {
             description: true,
           },
         },
+      },
+      where: {
+        community: dao.communityId
+          ? {
+              id: {
+                equals: dao.communityId,
+              },
+            }
+          : undefined,
       },
     });
     return masses as unknown as MassEntity[];

@@ -4,6 +4,7 @@ import {
   MASSES_REPOSITORY,
   MassesRepository,
 } from '../../repositories/masses/masses.repository';
+import { GetAllMassesDTO } from '../../dtos/masses/getAllMasses.dto';
 
 @Injectable()
 export class GetAllMassesUsecase extends Usecase {
@@ -16,9 +17,9 @@ export class GetAllMassesUsecase extends Usecase {
     super();
   }
 
-  async handle() {
+  async handle(dto: GetAllMassesDTO) {
     try {
-      const masses = await this.massesRepository.findMany();
+      const masses = await this.massesRepository.findMany(dto);
 
       return this.buildPage(masses);
     } catch (error) {

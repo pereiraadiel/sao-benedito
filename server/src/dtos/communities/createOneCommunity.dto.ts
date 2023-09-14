@@ -30,6 +30,6 @@ export class CreateOneCommunityDTO {
   addressDistrict: string;
 
   @IsNotEmpty()
-  @Length(5, 255)
+  @Length(5, 1024)
   addressMapLink: string;
 }
