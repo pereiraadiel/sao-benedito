@@ -1,26 +1,26 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Usecase } from '../usecase';
-import { UpdateOneMassDTO } from '../../dtos/masses/updateOneMass.dto';
+import { UpdateOneEventDTO } from '../../dtos/events/updateOneEvent.dto';
 import { NotFoundException } from '../../exceptions/notFound.exception';
 import {
-  MASSES_REPOSITORY,
-  MassesRepository,
-} from '../../repositories/masses/masses.repository';
+  EVENTS_REPOSITORY,
+  EventsRepository,
+} from '../../repositories/events/events.repository';
 
 @Injectable()
-export class UpdateOneMassUsecase extends Usecase {
-  protected usecaseName = 'Update One Mass Usecase';
+export class UpdateOneEventUsecase extends Usecase {
+  protected usecaseName = 'Update One Event Usecase';
 
   constructor(
-    @Inject(MASSES_REPOSITORY)
-    private readonly massesRepository: MassesRepository,
+    @Inject(EVENTS_REPOSITORY)
+    private readonly eventsRepository: EventsRepository,
   ) {
     super();
   }
 
-  async handle(dto: UpdateOneMassDTO) {
+  async handle(dto: UpdateOneEventDTO) {
     try {
-      const exists = await this.massesRepository.findOneId(dto.id);
+      const exists = await this.eventsRepository.findOneId(dto.id);
       if (!exists) {
         throw new NotFoundException(
           [
@@ -32,12 +32,12 @@ export class UpdateOneMassUsecase extends Usecase {
         );
       }
 
-      const mass = await this.massesRepository.updateOne({
+      const event = await this.eventsRepository.updateOne({
         id: dto.id,
         ...dto,
       });
 
-      return mass;
+      return event;
     } catch (error) {
       this.exceptionHandler(error, [
         {

@@ -22,7 +22,6 @@ export class CreateOneSecretaryTimeUsecase extends Usecase {
       const secretaryTime = await this.secretaryTimesRepository.createOne(dto);
       return secretaryTime;
     } catch (error) {
-      console.error(error);
       this.exceptionHandler(error, [
         {
           day: dto.day,

@@ -22,7 +22,6 @@ export class CreateOneConfessionUsecase extends Usecase {
       const confession = await this.confessionsRepository.createOne(dto);
       return confession;
     } catch (error) {
-      console.error(error);
       this.exceptionHandler(error, [
         {
           day: dto.day,

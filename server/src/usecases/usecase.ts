@@ -22,6 +22,7 @@ export abstract class Usecase {
   protected exceptionHandler(error: any, context: ExceptionContext[] = []) {
     this.logger.error(error);
     this.logger.error(context);
+    console.error(error);
     if (error instanceof AppException) throw error;
     else if (error instanceof PrismaClientKnownRequestError) {
       const messages = {

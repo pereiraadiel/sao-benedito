@@ -42,7 +42,6 @@ export class UploadMediaFileUsecase extends Usecase {
 
       return media;
     } catch (error) {
-      console.error(error);
       this.exceptionHandler(error, [
         {
           file: file.originalname,

@@ -60,6 +60,8 @@ model Event {
   id          String    @id @map("_id")
   title       String
   description String
+  initialDate DateTime
+  finalDate   DateTime
   communityId String
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime? @map("updated_at")

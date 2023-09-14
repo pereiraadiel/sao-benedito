@@ -39,7 +39,6 @@ export class UpdateOneSecretaryTimeUsecase extends Usecase {
 
       return secretaryTime;
     } catch (error) {
-      console.error(error);
       this.exceptionHandler(error, [
         {
           id: dto.id,

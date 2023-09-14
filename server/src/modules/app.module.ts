@@ -16,6 +16,7 @@ import { CommunitiesModule } from './communities.module';
 import { ConfessionsModule } from './confessions.module';
 import { SecretaryTimesModule } from './secretaryTimes.module';
 import { MassesModule } from './masses.module';
+import { EventsModule } from './events.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { MassesModule } from './masses.module';
     ConfessionsModule,
     MassesModule,
     SecretaryTimesModule,
+    EventsModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })

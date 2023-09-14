@@ -22,7 +22,6 @@ export class CreateOneMassUsecase extends Usecase {
       const mass = await this.massesRepository.createOne(dto);
       return mass;
     } catch (error) {
-      console.error(error);
       this.exceptionHandler(error, [
         {
           day: dto.day,
