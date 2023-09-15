@@ -18,6 +18,7 @@ import { SecretaryTimesModule } from './secretaryTimes.module';
 import { MassesModule } from './masses.module';
 import { EventsModule } from './events.module';
 import { NoticesModule } from './notices.module';
+import { ProjectsModule } from './projects.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { NoticesModule } from './notices.module';
     SecretaryTimesModule,
     EventsModule,
     NoticesModule,
+    ProjectsModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })
