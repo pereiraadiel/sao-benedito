@@ -3,6 +3,7 @@ import {
   IsHexadecimal,
   IsNotEmpty,
   Length,
+  IsOptional,
 } from 'class-validator';
 
 export class CreateOneProjectDTO {
@@ -14,7 +15,7 @@ export class CreateOneProjectDTO {
   @Length(5, 255)
   description: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsDateString({
     strict: true,
   })

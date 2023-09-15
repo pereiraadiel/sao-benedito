@@ -1,10 +1,4 @@
-import {
-  IsDateString,
-  IsHexadecimal,
-  IsNotEmpty,
-  IsOptional,
-  Length,
-} from 'class-validator';
+import { IsDateString, IsOptional, Length } from 'class-validator';
 
 export class UpdateOneProjectDTO {
   @IsOptional()
@@ -21,8 +15,5 @@ export class UpdateOneProjectDTO {
   })
   finishedIn?: Date;
 
-  @IsNotEmpty()
-  @IsHexadecimal()
-  @Length(32, 32)
-  id: string;
+  id?: string;
 }
