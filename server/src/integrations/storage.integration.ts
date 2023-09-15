@@ -25,6 +25,8 @@ export class StorageIntegration {
         ? 'public-read'
         : 'private';
 
+      console.warn(ACL);
+
       const uploadedData = await s3Instance.send(
         new PutObjectCommand({
           Key: key,
@@ -33,6 +35,7 @@ export class StorageIntegration {
           ACL,
         }),
       );
+      console.warn(uploadedData);
       return uploadedData;
     } catch (error) {
       console.warn(error);

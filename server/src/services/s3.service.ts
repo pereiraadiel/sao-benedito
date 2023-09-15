@@ -10,9 +10,11 @@ export class S3Service {
 
   constructor(region: string = 'global') {
     this.s3Client = new S3Client({
-      endpoint: 'https://s3.tebi.io',
+      endpoint: StorageContant.endpoint,
       credentials: this.credentials,
       region,
+      forcePathStyle: StorageContant.endpoint.includes('localhost'),
+      apiVersion: 'v4',
     });
   }
 

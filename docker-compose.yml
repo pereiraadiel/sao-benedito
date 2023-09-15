@@ -1,6 +1,21 @@
 version: "3"
 
 services:
+  s3:
+    image: minio/minio
+    container_name: s3
+    environment:
+      #echo "mini" | base64 | sha256sum
+      MINIO_ROOT_USER: e278b9da3f6a587369b7d25f9b70b2dc4d39e3460d5ec2332aa16aac802b141a
+      # echo "t@153" | base64 | sha256sum
+      MINIO_ROOT_PASSWORD: ca5f1fc6987eb367f2292565152828e930d155ddafffe0fc9ade2c847e457a59
+    ports:
+      - 9000:9000
+      - 9090:9090
+    volumes:
+      - ./volumes/s3:/data
+    command: server /data --console-address ":9090"
+
   redis:
     image: redis
     container_name: redis_cache
