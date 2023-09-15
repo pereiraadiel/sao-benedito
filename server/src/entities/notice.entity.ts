@@ -4,7 +4,7 @@ export class NoticeEntity extends Entity {
   title: string;
   description: string;
   coverImageUrl: string;
-  notifyFrom: Date;
+  notifyFrom?: Date;
   notifyUntil: Date;
 
   constructor(entity: Omit<NoticeEntity, 'id' | 'createdAt'>, id?: string) {

@@ -29,7 +29,7 @@ services:
   server:
     build: ./server
     container_name: server
-    env_file: ./server/.env
+    env_file: ./server/.docker.env
     ports:
       - 8008:3000
     depends_on:
