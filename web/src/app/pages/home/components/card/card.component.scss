@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 100%;
   min-width: 24rem;
+  height: 12rem;
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius);
   padding: 1rem 0;
@@ -33,5 +34,6 @@
 
   > p {
     font-size: var(--font-sm);
+    text-align: center;
   }
 }
