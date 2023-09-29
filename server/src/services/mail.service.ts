@@ -1,20 +1,16 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MailConstant } from '../constants/mail.constant';
 
-type SendMail = {
-  subject: string;
-  text: string;
-  html: string;
-  to: string;
-};
+import { MAIL_PROVIDER, MailProvider } from '../providers/mail.provider';
+import { MailDataContract } from '../providers/contracts/mailData.contract';
 
 @Injectable()
 export class MailService {
-  constructor(@Inject('MAILER_PROVIDER') private readonly mailerProvider) {}
+  constructor(
+    @Inject(MAIL_PROVIDER) private readonly mailerProvider: MailProvider,
+  ) {}
 
-  async sendEmail(data: SendMail) {
+  async sendEmail(data: MailDataContract) {
     const mailOptions = {
-      from: MailConstant.user,
       to: data.to,
       subject: data.subject,
       text: data.text,

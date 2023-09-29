@@ -1,16 +1,12 @@
 import { Module } from '@nestjs/common';
-import * as nodemailer from 'nodemailer';
 
 import { MailService } from '../services/mail.service';
-import { MailConstant } from '../constants/mail.constant';
+import { NodemailerMailProvider } from '../providers/nodemailer.mail.provider';
+import { MAIL_PROVIDER } from './../providers/mail.provider';
 
 const MailerProvider = {
-  provide: 'MAILER_PROVIDER',
-  useFactory: () =>
-    nodemailer.createTransport({
-      service: 'Gmail',
-      auth: MailConstant,
-    }),
+  provide: MAIL_PROVIDER,
+  useClass: NodemailerMailProvider,
 };
 
 @Module({
