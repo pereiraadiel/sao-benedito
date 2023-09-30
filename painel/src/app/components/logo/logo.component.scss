@@ -1,0 +1,21 @@
+.logotipo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  > .logo {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  > .brand {
+    > img {
+      height: 4rem;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+header {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  @media  (max-width: 496px) {
+    padding: 0.5rem 0;
+  }
+  > .header-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--app-width);
+    padding: 0.4rem 0;
+
+    @media  (max-width: 496px) {
+      gap: 1.5rem;
+      padding: 1rem 0.8rem;
+      justify-content: center;
+    }
+
+    > nav {
+      min-width: 10rem;
+     > ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      > li {
+        > a {
+          font-size: var(--font-sm);
+          font-weight: 500;
+          text-transform: uppercase;
+          color: var(--text-primary);
+        }
+      }
+     }
+    }
+  }
+}

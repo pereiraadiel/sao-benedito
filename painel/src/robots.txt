@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Allow: /$
+Allow: /clero
+Allow: /comunidades
+Allow: /horarios
+Allow: /nossaHistoria
+Allow: /padroeiro
+Allow: /projetos
+Disallow: /
+
+User-agent: Bingbot
+Allow: /$
+Allow: /clero
+Allow: /comunidades
+Allow: /horarios
+Allow: /nossaHistoria
+Allow: /padroeiro
+Allow: /projetos
+Disallow: /

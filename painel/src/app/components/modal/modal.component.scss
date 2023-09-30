@@ -1,0 +1,52 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  color: var(--text-primary-alternative);
+  background: rgb(50, 28, 17, 0.8); /* Color de fondo semitransparente */
+  backdrop-filter: blur(2rem); /* Efecto de desenfoque */
+  z-index: 1000000;
+  overflow: hidden;
+  > button {
+    border:  none;
+    position: absolute;
+    top: 3.8%;
+    left: 50%;
+    z-index: 100000001;
+    transform: translate(-50%, -50%);
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    box-shadow: 0.1rem 0.1rem 2rem 0.1rem var(--text-primary);
+  }
+
+  > .modal {
+    width: 100%;
+    max-width: var(--app-width);
+    height: 100%;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    margin-top: 0.5rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > * {
+    z-index: 1000001;
+  }
+}
