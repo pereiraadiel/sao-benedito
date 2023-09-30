@@ -23,12 +23,15 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   async handleSubmit() {
     const response = await this.api.auth.signIn(this.loginForm);
+
     if (response === true) {
       this.loginForm.username = 'autenticado!';
       this.message = '';
     } else {
+      console.error(response);
       this.error = true;
-      this.message = (response as any).error.message;
+      this.message =
+        (response as any)?.message || 'Ocorreu um erro desconhecido! tente novamente mais tarde.';
     }
   }
 }

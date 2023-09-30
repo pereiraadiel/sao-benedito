@@ -30,6 +30,16 @@ export class ApiService {
             },
             (error) => {
               console.error(error);
+              if (error.status === 429)
+                resolve({
+                  message:
+                    'Muitas requisições! Aguarde alguns instantes e tente novamente!',
+                });
+              if (error.error.message) {
+                resolve({
+                  message: error.error.message,
+                });
+              }
               resolve(error);
             }
           );
