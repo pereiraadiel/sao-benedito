@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { GalleryItem } from '../../interfaces/galleryItem.interface';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-eventos',
@@ -36,7 +37,13 @@ export class EventosPageComponent {
     },
   ];
 
-  constructor(private readonly meta: Meta) {}
+  eventTitle = '';
+  eventDescription = '';
+
+  constructor(
+    private readonly meta: Meta,
+    private readonly apiService: ApiService
+  ) {}
 
   title = 'Paróquia São Benedito';
 
@@ -44,6 +51,14 @@ export class EventosPageComponent {
     this.meta.updateTag({
       name: 'description',
       content: 'Eventos das nossa comunidades.',
+    });
+
+    this.apiService.getAllEvents().subscribe((data) => {
+      // this.evento01Slides = data;
+      console.warn('↓DADOS→', data);
+      this.eventTitle = (data as any).title;
+      this.eventDescription = (data as any).description;
+      console.warn(this.evento01Slides, this.eventDescription, this.eventTitle);
     });
   }
 }

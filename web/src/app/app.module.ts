@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
+import { ApiService } from './services/api.service';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,9 +17,9 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     ComponentsModule,
     PagesModule,
+    ServicesModule,
     // AngularMetaModule.forRoot(),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
