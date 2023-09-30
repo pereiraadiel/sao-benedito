@@ -1,5 +1,6 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import RateLimit from 'express-rate-limit';
 
 import { DatabaseModule } from './database.module';
 import { HashModule } from './hash.module';
@@ -44,4 +45,32 @@ import { ProjectsModule } from './projects.module';
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    const limiter = RateLimit({
+      windowMs: 10 * 60 * 1000, // 1 min
+      max: 10,
+      keyGenerator: (req) => {
+        return req.ip;
+      },
+    });
+
+    consumer.apply(limiter).forRoutes('*');
+
+    consumer
+      .apply((req: any, res: any, next: any) => {
+        if (res.headersSent) {
+          return next();
+        }
+
+        if (req.rateLimit && req.rateLimit.remaining === 0) {
+          setTimeout(() => {
+            next();
+          }, 2 * 1000); // Atraso de 2 segundo
+        } else {
+          next();
+        }
+      })
+      .forRoutes('*');
+  }
+}

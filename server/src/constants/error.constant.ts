@@ -1,38 +1,40 @@
 export const ErrorConstant = {
   badRequest: {
     code: 400,
-    message: 'This request was malformed',
+    message:
+      'Há algum problema no conteúdo da requisição, verifique os dados e tente novamente!',
   },
   unauthorized: {
     code: 401,
-    message: 'This request was unauthorized',
+    message: 'Solicitação recusada! verifique as credenciais',
   },
   forbidden: {
     code: 403,
-    message: 'This request was forbidden',
+    message:
+      'Solicitação recusada! Você não possui as autorizações necessárias',
   },
   notFound: {
     code: 404,
-    message: 'This entity was not found',
+    message: 'Recurso não encontrado!',
   },
   alreadyExists: {
     code: 409,
-    message: 'This entity already exists',
+    message: 'Um recurso com dados conflitantes já existe!',
   },
   unprocessable: {
     code: 422,
-    message: 'This entity was not completely processed',
+    message: 'O recurso não foi totalmente processado, tente novamente!',
   },
   tooManyRequest: {
     code: 429,
-    message: 'Too many requests',
+    message: 'Muitas solicitações recorrentes',
   },
   unexpected: {
     code: 500,
-    message: 'An unexpected error occurred on the server',
+    message: 'Ocorreu um erro inesperado no servidor',
   },
   notImplemented: {
     code: 501,
-    message: 'This resource was not implemented',
+    message: 'Recurso ainda não implementado!',
   },
 } as const;
