@@ -1,0 +1,24 @@
+<section class="signin">
+  <app-logo />
+  <form class="login-form" (ngSubmit)="handleSubmit()">
+    <div class="logo">
+      <img src="assets/logo-stroke.png" alt="Logotipo">
+    </div>
+
+
+    <input id="username" name="username" placeholder="Endereço de e-mail" type="text" [(ngModel)]="loginForm.username"
+      (ngModelChange)="handleFormChange()" (focus)="handleFormChange()" required />
+    <input id="password" name="password" placeholder="Senha de acesso" type="password" [(ngModel)]="loginForm.password"
+      (ngModelChange)="handleFormChange()" (focus)="handleFormChange()" required />
+
+    <p>senha esquecida? <a href="/auth/reset">recuperar acesso</a></p>
+
+    <div *ngIf="message" class="message" [ngClass]="error ? 'error': ''">
+      <p>{{message}}</p>
+    </div>
+    <button type="submit" [disabled]="lockSubmit">
+      Acessar conta
+    </button>
+  </form>
+
+</section>

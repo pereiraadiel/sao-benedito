@@ -48,8 +48,8 @@ import { ProjectsModule } from './projects.module';
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     const limiter = RateLimit({
-      windowMs: 10 * 60 * 1000, // 1 min
-      max: 10,
+      windowMs: 1 * 60 * 1000, // 1 min
+      max: 15,
       keyGenerator: (req) => {
         return req.ip;
       },
@@ -66,7 +66,7 @@ export class AppModule {
         if (req.rateLimit && req.rateLimit.remaining === 0) {
           setTimeout(() => {
             next();
-          }, 2 * 1000); // Atraso de 2 segundo
+          }, 2 * 1000); // Atraso de 2 segundos em cada requisição quando atinge o limite de requisições por minuto
         } else {
           next();
         }

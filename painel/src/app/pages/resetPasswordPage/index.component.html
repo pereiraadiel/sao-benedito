@@ -1,0 +1,24 @@
+<section class="reset-password">
+  <app-logo />
+  <form class="login-form" (ngSubmit)="handleSubmit()">
+    <div class="logo">
+      <img src="assets/logo-stroke.png" alt="Logotipo">
+    </div>
+
+    <h1>Altere sua senha de acesso</h1>
+
+    <input id="password" name="password" placeholder="Crie uma nova senha de acesso" type="password"
+      [(ngModel)]="resetForm.password" required (ngModelChange)="handleFormChange()" (focus)="handleFormChange()" />
+    <input id="confirmation" name="confirmation" placeholder="Confirme a nova senha de acesso" type="password"
+      [(ngModel)]="resetForm.confirmation" required (ngModelChange)="handleFormChange()" (focus)="handleFormChange()" />
+
+
+    <div *ngIf="message" class="message" [ngClass]="{'error': error}">
+      <p>{{message}}</p>
+    </div>
+    <button type="submit" [disabled]="lockSubmit">
+      Recuperar acesso
+    </button>
+  </form>
+
+</section>
