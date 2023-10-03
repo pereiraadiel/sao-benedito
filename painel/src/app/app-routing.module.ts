@@ -4,8 +4,23 @@ import { NotFoundPageComponent } from './pages/notFound/notFoundPage.component';
 import { SignInPageComponent } from './pages/signInPage/index.component';
 import { RequestResetPasswordPageComponent } from './pages/requestResetPasswordPage/index.component';
 import { ResetPasswordPageComponent } from './pages/resetPasswordPage/index.component';
+import { HomePageComponent } from './pages/homePage/index.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomePageComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: {
+      meta: {
+        title: 'Painel | Paróquia São Benedito',
+        description:
+          "Paróquia São Benedito e Comunidade Sant'Ana - Diocese de Uberlândia-MG",
+      },
+    },
+  },
   {
     path: 'auth/sign/in',
     component: SignInPageComponent,

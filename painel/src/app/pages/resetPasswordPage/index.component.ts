@@ -66,7 +66,6 @@ export class ResetPasswordPageComponent implements OnInit, OnDestroy {
     const response = await this.api.auth.reset(this.resetForm);
 
     if (response.hasError) {
-      console.error(response);
       this.error = true;
       this.message =
         response.message ||

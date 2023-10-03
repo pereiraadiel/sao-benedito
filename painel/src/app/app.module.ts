@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { ServicesModule } from './services/services.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { ServicesModule } from './services/services.module';
     FormsModule,
     // AngularMetaModule.forRoot(),
   ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

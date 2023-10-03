@@ -6,6 +6,7 @@ import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { RequestResetPasswordPageComponent } from './requestResetPasswordPage/index.component';
 import { ResetPasswordPageComponent } from './resetPasswordPage/index.component';
+import { HomePageComponent } from './homePage/index.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ResetPasswordPageComponent } from './resetPasswordPage/index.component'
     SignInPageComponent,
     RequestResetPasswordPageComponent,
     ResetPasswordPageComponent,
+    HomePageComponent,
   ],
   imports: [BrowserModule, ComponentsModule, FormsModule],
   providers: [],
@@ -21,6 +23,7 @@ import { ResetPasswordPageComponent } from './resetPasswordPage/index.component'
     SignInPageComponent,
     RequestResetPasswordPageComponent,
     ResetPasswordPageComponent,
+    HomePageComponent,
   ],
 })
 export class PagesModule {}

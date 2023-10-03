@@ -37,3 +37,4 @@ import { EventosPageComponent } from './eventos/eventosPage.component';
   exports: [NotFoundPageComponent, HomePageComponent],
 })
 export class PagesModule {}
+ 

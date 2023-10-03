@@ -1,0 +1,39 @@
+section.home {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0;
+  place-items: center;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  & .side {
+    h1 {
+      font-size: var(--font-lg);
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    > button {
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      border-radius: var(--border-radius);
+      background-color: var(--bg-quaternary);
+      color: var(--text-primary-alternative);
+      font-size: var(--font-md);
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

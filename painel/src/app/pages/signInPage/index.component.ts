@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,7 +21,8 @@ export class SignInPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly api: ApiService,
-    private readonly titleService: Title
+    private readonly titleService: Title,
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
@@ -45,13 +47,13 @@ export class SignInPageComponent implements OnInit, OnDestroy {
     const response = await this.api.auth.signIn(this.loginForm);
 
     if (response.hasError) {
-      console.error(response);
       this.error = true;
       this.message =
         response.message ||
         'Ocorreu um erro desconhecido! tente novamente mais tarde.';
     } else {
       this.message = 'Autenticado!';
+      this.router.navigate(['/']);
     }
   }
 }

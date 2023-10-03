@@ -2,15 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-request-reset-password',
+  selector: 'app-home',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
-export class RequestResetPasswordPageComponent implements OnInit, OnDestroy {
-  requestResetForm = {
-    email: '',
+export class HomePageComponent implements OnInit, OnDestroy {
+  loginForm = {
+    username: '',
+    password: '',
   };
 
   error = false;
@@ -19,11 +21,12 @@ export class RequestResetPasswordPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly api: ApiService,
-    private readonly titleService: Title
+    private readonly titleService: Title,
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Recuperar acesso | Paróquia São Benedito');
+    this.titleService.setTitle('Painel | Paróquia São Benedito');
   }
 
   ngOnDestroy() {}
@@ -31,17 +34,26 @@ export class RequestResetPasswordPageComponent implements OnInit, OnDestroy {
   handleFormChange() {
     this.message = '';
     this.error = false;
-    if (this.requestResetForm.email) {
+    if (this.loginForm.username) {
       this.lockSubmit = false;
     }
+  }
+
+  async handleLogout() {
+    const accessToken = localStorage.getItem('@saobenedito:access');
+    if (!accessToken) return;
+    await this.api.auth.signOut({
+      accessToken,
+    });
+    this.router.navigate(['/auth/sign/in']);
   }
 
   async handleSubmit() {
     if (this.lockSubmit) return;
 
     this.lockSubmit = true;
-    this.message = 'Solicitando código de recuperação...';
-    const response = await this.api.auth.requestReset(this.requestResetForm);
+    this.message = 'Validando credenciais...';
+    const response = await this.api.auth.signIn(this.loginForm);
 
     if (response.hasError) {
       this.error = true;
@@ -49,7 +61,7 @@ export class RequestResetPasswordPageComponent implements OnInit, OnDestroy {
         response.message ||
         'Ocorreu um erro desconhecido! tente novamente mais tarde.';
     } else {
-      this.message = response.message;
+      this.message = 'Autenticado!';
     }
   }
 }
