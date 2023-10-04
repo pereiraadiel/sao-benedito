@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
 type ButtonClickType =
+  | 'home'
   | 'avisos'
   | 'clero'
   | 'horarios'
@@ -33,8 +34,9 @@ export class SidebarComponent {
     private readonly api: ApiService
   ) {}
 
-  handleButtonClick(button: ButtonClickType) {
+  handleNavigate(button: ButtonClickType) {
     const actions = {
+      home: () => this.router.navigate(['/']),
       avisos: () => this.router.navigate(['/avisos']),
       clero: () => this.router.navigate(['/clero']),
       horarios: () => this.router.navigate(['/horarios']),
