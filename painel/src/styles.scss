@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@800&display=swap');
 
-
 :root {
   --bg-primary: #B2B0A4;
   --bg-secondary: #d2d0c4;
@@ -12,6 +11,7 @@
   --text-primary-alternative: #f3f3f3;
   --text-accent: #6F4930;
   --text-accent-alternative: #EAD89A;
+  --accent: #ff3355;
   --error: #ff2230;
   --warn: #5566ff;
 
@@ -54,6 +54,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 

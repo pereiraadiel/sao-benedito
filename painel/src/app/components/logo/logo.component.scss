@@ -5,8 +5,8 @@
 
   > .logo {
     border-radius: 50%;
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
     > img {
       width: 100%;
       height: 100%;
@@ -15,7 +15,21 @@
 
   > .brand {
     > img {
-      height: 5rem;
+      height: 3rem;
+    }
+  }
+
+  &.large {
+    color: var(--warn);
+    > .logo {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    > .brand {
+      > img {
+        height: 5rem;
+      }
     }
   }
 }

@@ -6,6 +6,10 @@ section.reset-password {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-width: var(--app-width);
+  margin: auto;
+  height: 100vh;
+  flex: 1;
 
   @media (max-width: 480px) {
     justify-content: center;

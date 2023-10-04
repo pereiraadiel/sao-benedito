@@ -7,20 +7,20 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent {
-  @Input() variant: 'default' | 'footer' = 'default';
+  @Input() variant: 'default' | 'footer' | 'large' = 'default';
   title = 'Paróquia São Benedito';
 
   constructor(private readonly sanitizer: DomSanitizer) {}
 
   get brand() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.variant === 'default' ? 'assets/brand.svg' : 'assets/brand-white.svg'
+      this.variant !== 'footer' ? 'assets/brand.svg' : 'assets/brand-white.svg'
     );
   }
 
   get logo() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.variant === 'default' ? 'assets/logo.png' : 'assets/logo-stroke.png'
+      this.variant !== 'footer' ? 'assets/logo.png' : 'assets/logo-stroke.png'
     );
   }
 }
