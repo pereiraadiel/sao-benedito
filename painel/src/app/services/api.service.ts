@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import Jwt from 'jwt-decode';
+
 import { EnvironmentConstanst } from '../constants/environment.constant';
 import {
   IsAuth,
@@ -191,41 +193,24 @@ export class ApiService {
   user = {
     isAuth: ({ accessToken }: IsAuth) => {
       return new Promise<ServiceResponse>((resolve, reject) => {
-        this.http
-          .get(`${this.apiUrl}/users/1`, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          })
-          .subscribe(
-            (response) => {
-              resolve({
-                message: 'Usuário esta autenticado!',
-                hasError: false,
-              });
-            },
-            (error) => {
-              if (error.status === 429)
-                resolve({
-                  message:
-                    'Muitas requisições! Aguarde alguns instantes e tente novamente!',
-                  hasError: true,
-                });
-              if (error.status === 401) {
-                resolve({
-                  message: 'Usuário não autorizado!',
-                  hasError: true,
-                });
-              }
-              if (error.error.message) {
-                resolve({
-                  message: error.error.message,
-                  hasError: true,
-                });
-              }
-              resolve(error);
-            }
-          );
+        const token = Jwt(accessToken) as any;
+        const now = new Date();
+
+        if (
+          token &&
+          token.exp &&
+          new Date(token.exp).getTime() > now.getTime() / 1000
+        ) {
+          resolve({
+            message: 'Usuário esta autenticado!',
+            hasError: false,
+          });
+        }
+
+        resolve({
+          message: 'Usuário não autorizado!',
+          hasError: true,
+        });
       });
     },
   };
