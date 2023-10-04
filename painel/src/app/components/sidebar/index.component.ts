@@ -1,5 +1,5 @@
 import { DomSanitizer } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
@@ -23,6 +23,9 @@ type ButtonClickType =
 })
 export class SidebarComponent {
   title = 'Paróquia São Benedito';
+
+  @Input() openOverlay: boolean = false;
+  @Output() onOverlayClosed = new EventEmitter<void>();
 
   constructor(
     private readonly sanitizer: DomSanitizer,
@@ -54,5 +57,10 @@ export class SidebarComponent {
 
     const action = actions[button];
     action();
+  }
+
+  handleCloseOverlay() {
+    this.openOverlay = false;
+    this.onOverlayClosed.emit();
   }
 }

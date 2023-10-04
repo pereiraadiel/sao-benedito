@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside class="sidebar" [ngClass]="openOverlay ? 'active': ''">
   <app-logo />
   <div class="wrapper">
     <button (click)="handleButtonClick('avisos')">Avisos</button>
@@ -14,3 +14,4 @@
   </div>
   <button (click)="handleButtonClick('signOut')">Sair da Conta</button>
 </aside>
+<div class="overlay" (click)="handleCloseOverlay()" [ngClass]="openOverlay ? 'active': ''"></div>

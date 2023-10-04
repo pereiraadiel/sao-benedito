@@ -17,6 +17,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   error = false;
   lockSubmit = true;
+  openMobileSidebarOverlay = false;
   message: string = '';
 
   constructor(
@@ -37,6 +38,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
     if (this.loginForm.username) {
       this.lockSubmit = false;
     }
+  }
+
+  handleToggleMobileSidebarOverlay() {
+    this.openMobileSidebarOverlay = !this.openMobileSidebarOverlay;
   }
 
   async handleLogout() {
