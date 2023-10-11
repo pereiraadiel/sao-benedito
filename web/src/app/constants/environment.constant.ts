@@ -1,5 +1,5 @@
 export const EnvironmentConstanst = {
   api: {
-    url: 'http://localhost:8008',
+    url: /*process.env['NG_APP_SERVER_URL'] ||*/ 'http://localhost:8008',
   },
 } as const;

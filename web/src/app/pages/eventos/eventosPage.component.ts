@@ -53,12 +53,21 @@ export class EventosPageComponent {
       content: 'Eventos das nossa comunidades.',
     });
 
-    this.apiService.getAllEvents().subscribe((data) => {
-      // this.evento01Slides = data;
-      console.warn('↓DADOS→', data);
-      this.eventTitle = (data as any).title;
-      this.eventDescription = (data as any).description;
-      console.warn(this.evento01Slides, this.eventDescription, this.eventTitle);
-    });
+    // this.apiService.getAllEvents().subscribe((data) => {
+    //   // this.evento01Slides = data;
+    //   console.warn('↓DADOS→', data);
+    //   this.eventTitle = (data as any).title;
+    //   this.eventDescription = (data as any).description;
+    //   console.warn(this.evento01Slides, this.eventDescription, this.eventTitle);
+    // });
+
+    this.apiService.communities.getAll().then((response) => {
+      this.eventTitle = response.data[0].name;
+      this.eventDescription = response.data[0].description;
+    }).catch(error => {
+      console.error(error);
+      // mostrar um modal com informações do erro para que o usuario possa
+      // saber qual erro ocorreu e tomar a decisão de acordo
+    })
   }
 }

@@ -13,6 +13,8 @@ import { ProjetosPageComponent } from './projetos/projetosPage.component';
 import { ComponentsModule } from '../components/components.module';
 import { SecretariaPageComponent } from './secretaria/secretariaPage.component';
 import { EventosPageComponent } from './eventos/eventosPage.component';
+import { AvisosPageComponent } from './avisos/avisosPage.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { EventosPageComponent } from './eventos/eventosPage.component';
     ProjetosPageComponent,
     SecretariaPageComponent,
     EventosPageComponent,
+    AvisosPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +35,9 @@ import { EventosPageComponent } from './eventos/eventosPage.component';
     CleroComponentsModule,
     HorariosComponentsModule,
     ComponentsModule,
+    CommonModule,
   ],
   providers: [],
   exports: [NotFoundPageComponent, HomePageComponent],
 })
 export class PagesModule {}
- 

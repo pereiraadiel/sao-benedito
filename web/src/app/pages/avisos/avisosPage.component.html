@@ -1,0 +1,14 @@
+<section class="avisos" id="avisos">
+  <h1>Comunicados</h1>
+  <span class="bg">Avisos</span>
+
+  <div class="content">
+    <section *ngFor="let notice of notices" class="wrapper">
+      <img *ngIf="notice.finalDate > today" src="/assets/notice.svg" alt="Icone de Aviso" />
+      <h2 *ngIf="notice.finalDate > today">{{notice.title}}</h2>
+      <p *ngIf="notice.finalDate > today">{{notice.description}}</p>
+
+      <app-gallery *ngIf="notice.finalDate > today" [data]="notice.medias" [showCount]="true" />
+    </section>
+  </div>
+</section>

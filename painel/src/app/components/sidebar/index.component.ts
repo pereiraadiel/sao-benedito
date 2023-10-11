@@ -50,10 +50,14 @@ export class SidebarComponent {
       signOut: async () => {
         const accessToken = localStorage.getItem('@saobenedito:access');
         if (!accessToken) return false;
-        await this.api.auth.signOut({
+        const response = await this.api.auth.signOut({
           accessToken,
         });
-        return this.router.navigate(['/auth/sign/in']);
+        console.log(response);
+        if (response.message === 'Sessão encerrada com sucesso!') {
+          return this.router.navigate(['/auth/sign/in']);
+        }
+        return false;
       },
     };
 

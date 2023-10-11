@@ -10,6 +10,7 @@ import { HorariosPageComponent } from './pages/horarios/horariosPage.component';
 import { ProjetosPageComponent } from './pages/projetos/projetosPage.component';
 import { SecretariaPageComponent } from './pages/secretaria/secretariaPage.component';
 import { EventosPageComponent } from './pages/eventos/eventosPage.component';
+import { AvisosPageComponent } from './pages/avisos/avisosPage.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,12 @@ const routes: Routes = [
     path: 'eventos',
     title: 'Eventos | Paróquia São Benedito',
     component: EventosPageComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'avisos',
+    title: 'Avisos | Paróquia São Benedito',
+    component: AvisosPageComponent,
     pathMatch: 'full',
   },
   {
