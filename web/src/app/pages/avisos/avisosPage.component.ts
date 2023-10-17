@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { GalleryItem } from '../../interfaces/galleryItem.interface';
 import { ApiService } from '../../services/api.service';
 import { Notice } from '../../interfaces/notice.interface';
@@ -35,10 +35,10 @@ export class AvisosPageComponent {
 
   constructor(
     private readonly meta: Meta,
+    private readonly title: Title,
     private readonly apiService: ApiService
   ) {}
 
-  title = 'Paróquia São Benedito';
   today = new Date();
 
   ngOnInit(): void {
@@ -47,5 +47,10 @@ export class AvisosPageComponent {
       content:
         'Avisos e comunicados das comunidades da paróquia São Benedito Uberlândia.',
     });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'noindex, nofollow',
+    });
+    this.title.setTitle('Avisos | Paróquia São Benedito');
   }
 }

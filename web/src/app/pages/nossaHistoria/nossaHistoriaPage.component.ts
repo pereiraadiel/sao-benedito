@@ -14,10 +14,10 @@ export class NossaHistoriaPageComponent {
       name: 'description',
       content: 'Conheça a historia da nossa paróquia!',
     });
-    // this.meta.updateTag({
-    //   name: 'robots',
-    //   content: 'index, follow',
-    // });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'noindex, nofollow',
+    });
     this.meta.updateTag({
       name: 'keywords',
       content:

@@ -15,10 +15,10 @@ export class CleroPageComponent {
       content:
         'Clero da paróquia São Benedito · Pároco padre Joaquim Porto · Vigário padre Marcos Borges · Diácono Jerônimo Ferreira',
     });
-    // this.meta.updateTag({
-    //   name: 'robots',
-    //   content: 'index, follow',
-    // });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'noindex, nofollow',
+    });
     this.meta.updateTag({
       name: 'keywords',
       content:
