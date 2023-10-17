@@ -6,7 +6,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { interval, Subscription } from 'rxjs';
 
 @Component({
@@ -39,13 +39,24 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    private readonly sanitizer: DomSanitizer
+    private readonly sanitizer: DomSanitizer,
+    private readonly meta: Meta,
+    private readonly title: Title
   ) {}
 
   ngOnInit() {
     this.subscription = interval(15 * 1000).subscribe(() => {
       this.changeHeroBackground();
     });
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Paróquia São Benedito | Diocese de Uberlândia-MG',
+    });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow',
+    });
+    this.title.setTitle('Paróquia São Benedito');
   }
 
   ngOnDestroy() {

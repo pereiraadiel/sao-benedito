@@ -12,36 +12,9 @@ import { Notice } from '../../interfaces/notice.interface';
 export class AvisosPageComponent {
   notices: Notice[] = [
     {
-      id: '1',
-      title: 'Missa de Encerramento da Novena',
-      description:
-        'A nossa missa em honra a Nossa Senhora Aparecida está se aproximando e contamos com a presença de todos os fiéis da Paróquia São Benedito!\
-        \
-        Teremos missa às 7h30, 9h00 (voltada para os catequizandos) e 18h00, finalizando com as barraquinhas.\
-        \
-        Escolha o melhor horário e venha celebrar conosco!',
-      finalDate: new Date('2023-10-12T19:00:00'),
-      medias: [
-        {
-          id: '1',
-          alternativeText: 'Foto com arte da missa de encerramento da novena',
-          source: 'https://files.adiel.dev/missa-encerramento-novena-arte.jpeg',
-          type: 'image',
-        },
-        {
-          id: '2',
-          alternativeText:
-            'Foto com informações da missa de encerramento da novena',
-          source:
-            'https://files.adiel.dev/missa-encerramento-novena-descrição.jpeg',
-          type: 'image',
-        },
-      ],
-    },
-    {
       id: '2',
-      title: 'Curso de Turibulo',
-      description: 'Curso de turibulo para todos os coroinhas da paróquia!',
+      title: 'Curso de Turíbulo',
+      description: 'Curso de turíbulo para todos os coroinhas da paróquia!',
       finalDate: new Date('2023-10-21T14:00:00'),
       medias: [
         {
@@ -71,9 +44,8 @@ export class AvisosPageComponent {
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
-      content: 'Avisos e Comunicados das nossas comunidades.',
+      content:
+        'Avisos e comunicados das comunidades da paróquia São Benedito Uberlândia.',
     });
-
-    console.warn(this.notices);
   }
 }

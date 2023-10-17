@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-horarios',
@@ -7,14 +7,24 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./horariosPage.component.scss'],
 })
 export class HorariosPageComponent {
-  constructor(private readonly meta: Meta) {}
+  constructor(private readonly meta: Meta, private readonly title: Title) {}
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
       content:
-        'Fique por dentro dos horários de funcionamento das nossas comunidades.',
+        'Horários das Santas Missas e de confissões nas comunidades da paróquia São Benedito',
     });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'horários são benedito, paróquia são benedito planalto horários, paróquia são benedito horários, são benedito uberlândia, paróquia são benedito horário de missas, igreja são benedito horário de missa',
+    });
+    this.title.setTitle('Horários | Paróquia São Benedito');
   }
 
   horariosMissaSaoBenedito = [
@@ -63,5 +73,4 @@ export class HorariosPageComponent {
       times: ['10:30', '17:30'],
     },
   ];
-  title = 'Paróquia São Benedito';
 }

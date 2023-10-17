@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { GalleryItem } from '../../interfaces/galleryItem.interface';
 import { ApiService } from '../../services/api.service';
 
@@ -42,32 +42,37 @@ export class EventosPageComponent {
 
   constructor(
     private readonly meta: Meta,
+    private readonly title: Title,
     private readonly apiService: ApiService
   ) {}
-
-  title = 'Paróquia São Benedito';
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
-      content: 'Eventos das nossa comunidades.',
+      content:
+        'Eventos, festas, quermesses e barraquinhas da paróquia São Benedito',
     });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'sao benedito barraquinhas, sao benedito eventos, paróquia são benedito quermesse, quermesse, barraquinhas, festas são benedito',
+    });
+    this.title.setTitle('Eventos | Paróquia São Benedito');
 
-    // this.apiService.getAllEvents().subscribe((data) => {
-    //   // this.evento01Slides = data;
-    //   console.warn('↓DADOS→', data);
-    //   this.eventTitle = (data as any).title;
-    //   this.eventDescription = (data as any).description;
-    //   console.warn(this.evento01Slides, this.eventDescription, this.eventTitle);
-    // });
-
-    this.apiService.communities.getAll().then((response) => {
-      this.eventTitle = response.data[0].name;
-      this.eventDescription = response.data[0].description;
-    }).catch(error => {
-      console.error(error);
-      // mostrar um modal com informações do erro para que o usuario possa
-      // saber qual erro ocorreu e tomar a decisão de acordo
-    })
+    this.apiService.communities
+      .getAll()
+      .then((response) => {
+        this.eventTitle = response.data[0].name;
+        this.eventDescription = response.data[0].description;
+      })
+      .catch((error) => {
+        console.error(error);
+        // mostrar um modal com informações do erro para que o usuario possa
+        // saber qual erro ocorreu e tomar a decisão de acordo
+      });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { GalleryItem } from '../../interfaces/galleryItem.interface';
 
 @Component({
@@ -36,14 +36,22 @@ export class ProjetosPageComponent {
     },
   ];
 
-  constructor(private readonly meta: Meta) {}
-
-  title = 'Paróquia São Benedito';
+  constructor(private readonly meta: Meta, private readonly title: Title) {}
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
-      content: 'Projetos e reformas das nossa comunidades.',
+      content: 'Veja o progresso dos projetos e obras nas nossas comunidades',
     });
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'index, follow',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'obras são benedito, paróquia são benedito planalto obras, paróquia são benedito projetos, são benedito uberlândia',
+    });
+    this.title.setTitle('Projetos | Paróquia São Benedito');
   }
 }

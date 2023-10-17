@@ -4,6 +4,7 @@ Allow: /comunidades
 Allow: /horarios
 Allow: /projetos
 Allow: /eventos
+Allow: /padroeiro
 Disallow: /avisos
 Disallow: /clero
 
@@ -13,6 +14,7 @@ Allow: /comunidades
 Allow: /horarios
 Allow: /projetos
 Allow: /eventos
+Allow: /padroeiro
 Disallow: /avisos
 Disallow: /clero
 
@@ -22,6 +24,7 @@ Allow: /comunidades
 Allow: /horarios
 Allow: /projetos
 Allow: /eventos
+Allow: /padroeiro
 Disallow: /avisos
 Disallow: /clero
 

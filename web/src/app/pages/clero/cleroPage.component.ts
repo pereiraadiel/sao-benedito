@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-clero',
@@ -7,14 +7,23 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./cleroPage.component.scss'],
 })
 export class CleroPageComponent {
-  constructor(private readonly meta: Meta) {}
+  constructor(private readonly meta: Meta, private readonly title: Title) {}
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
-      content: 'Conheça os sacerdotes e diáconos de nossa paróquia.',
+      content:
+        'Clero da paróquia São Benedito · Pároco padre Joaquim Porto · Vigário padre Marcos Borges · Diácono Jerônimo Ferreira',
     });
+    // this.meta.updateTag({
+    //   name: 'robots',
+    //   content: 'index, follow',
+    // });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'padre joaquim porto, padre marcos borges, diacono jeronimo gomes ferreira, paroquia sao benedito, clero',
+    });
+    this.title.setTitle('Clero | Paróquia São Benedito');
   }
-
-  title = 'Paróquia São Benedito';
 }
