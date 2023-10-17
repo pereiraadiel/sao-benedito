@@ -1,14 +1,15 @@
-// import * as crypto from 'crypto';
+import * as crypto from 'crypto';
 import * as bcrypt from 'bcrypt';
 import { AuthConstant } from '../constants/auth.constant';
 
 export const HashUtil = {
   hash: (plain: string) => {
-    const secret = AuthConstant.jwt.secret;
+    const secret = HashUtil.encode(AuthConstant.jwt.secret);
 
     const value = HashUtil.encode(plain);
 
-    const stepOne = '$2a$12$' + HashUtil.encode(secret);
+    const stepOne =
+      '$2a$12$' + crypto.createHash('sha256').update(secret).digest('hex');
 
     const stepTwo = bcrypt.hashSync(value, stepOne);
 
