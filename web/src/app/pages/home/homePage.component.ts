@@ -56,7 +56,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       name: 'robots',
       content: 'index, follow',
     });
-    this.title.setTitle('Paróquia São Benedito');
+    this.title.setTitle('Paróquia São Benedito | Diocese de Uberlândia-MG');
   }
 
   ngOnDestroy() {

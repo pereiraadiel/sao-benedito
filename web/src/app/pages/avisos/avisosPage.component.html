@@ -2,13 +2,24 @@
   <h1>Comunicados</h1>
   <span class="bg">Avisos</span>
 
-  <div class="content">
-    <section *ngFor="let notice of notices" class="wrapper">
-      <img *ngIf="notice.finalDate > today" src="/assets/notice.svg" alt="Icone de Aviso" />
-      <h2 *ngIf="notice.finalDate > today">{{notice.title}}</h2>
-      <p *ngIf="notice.finalDate > today">{{notice.description}}</p>
+  <div class="content" *ngIf="weekNotices.length > 0">
+    <section *ngFor="let notice of weekNotices" class="wrapper">
+      <img src="/assets/notice.svg" alt="Icone de Aviso" />
+      <h2>{{notice.title}}</h2>
+      <p>{{notice.description}}</p>
 
-      <app-gallery *ngIf="notice.finalDate > today" [data]="notice.medias" [showCount]="true" />
+      <app-gallery [data]="notice.medias" [showCount]="true" />
     </section>
+  </div>
+
+  <div class="content" *ngIf="weekNotices.length <= 0">
+    <div class="wrapper">
+      <img src="/assets/notice.svg" alt="Icone de Aviso" />
+      <h2>Avisos semanais</h2>
+      <p>
+        Nenhum aviso programado para esta semana. <br />
+        Lembre-se de verificar novamente amanhã para obter atualizações futuras!
+      </p>
+    </div>
   </div>
 </section>
