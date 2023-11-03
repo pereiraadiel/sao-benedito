@@ -40,9 +40,6 @@ export class NoticesPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleToggleMobileSidebarOverlay() {
-    this.openMobileSidebarOverlay = !this.openMobileSidebarOverlay;
-  }
 
   async handleLogout() {
     const accessToken = localStorage.getItem('@saobenedito:access');

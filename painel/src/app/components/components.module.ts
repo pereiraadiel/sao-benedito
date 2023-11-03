@@ -6,6 +6,9 @@ import { LogoComponent } from './logo/logo.component';
 import { ModalComponent } from './modal/modal.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { SidebarComponent } from './sidebar/index.component';
+import { LayoutComponent } from './layout/index.component';
+import { InputComponent } from './input/index.component';
+import { ButtonComponent } from './button/index.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { SidebarComponent } from './sidebar/index.component';
     ModalComponent,
     GalleryComponent,
     SidebarComponent,
+    LayoutComponent,
+    InputComponent,
+    ButtonComponent,
   ],
   imports: [BrowserModule],
   providers: [],
@@ -25,6 +31,9 @@ import { SidebarComponent } from './sidebar/index.component';
     ModalComponent,
     GalleryComponent,
     SidebarComponent,
+    LayoutComponent,
+    InputComponent,
+    ButtonComponent,
   ],
 })
 export class ComponentsModule {}

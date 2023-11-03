@@ -23,10 +23,9 @@ type ButtonClickType =
   styleUrls: ['./index.component.scss'],
 })
 export class SidebarComponent {
-  title = 'Paróquia São Benedito';
+  @Input() title = '';
 
-  @Input() openOverlay: boolean = false;
-  @Output() onOverlayClosed = new EventEmitter<void>();
+  openOverlay: boolean = false;
 
   constructor(
     private readonly sanitizer: DomSanitizer,
@@ -65,8 +64,7 @@ export class SidebarComponent {
     action();
   }
 
-  handleCloseOverlay() {
-    this.openOverlay = false;
-    this.onOverlayClosed.emit();
+  handleToggleMobileSidebarOverlay() {
+    this.openOverlay = !this.openOverlay;
   }
 }

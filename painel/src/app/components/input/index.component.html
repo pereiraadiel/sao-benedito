@@ -1,0 +1,6 @@
+<div class="input">
+  <label [for]="id">{{label}}</label>
+  <textarea *ngIf="isTextarea()" [id]="id" (onchange)="onChange()" [placeholder]="placeholder">{{value}}</textarea>
+  <input *ngIf="!isTextarea()" [id]="id" [type]="type" [value]="value" (onchange)="onChange()"
+    [placeholder]="placeholder" />
+</div>

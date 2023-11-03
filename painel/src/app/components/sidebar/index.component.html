@@ -1,3 +1,9 @@
+<div class="mobile-menu" (click)="handleToggleMobileSidebarOverlay()">
+  <h1> ··· </h1>
+  <h2>{{title}}</h2>
+
+</div>
+
 <aside class="sidebar" [ngClass]="openOverlay ? 'active': ''">
   <app-logo (click)="handleNavigate('home')" />
   <div class="wrapper">
@@ -14,4 +20,4 @@
   </div>
   <button (click)="handleNavigate('signOut')">Sair da Conta</button>
 </aside>
-<div class="overlay" (click)="handleCloseOverlay()" [ngClass]="openOverlay ? 'active': ''"></div>
+<div class="overlay" (click)="handleToggleMobileSidebarOverlay()" [ngClass]="openOverlay ? 'active': ''"></div>

@@ -1,0 +1,29 @@
+.input {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  > label {
+    font-size: var(--font-md);
+    margin-left: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+
+  > input, textarea {
+    border: none;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: var(--font-md);
+  }
+
+  > textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 8rem;
+    max-height: 8rem;
+  }
+}

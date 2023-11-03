@@ -1,0 +1,19 @@
+main.layout {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  > .wrapper {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    @media screen and (min-width: 480px) {
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+    padding: 0;
+  }
+}

@@ -1,0 +1,17 @@
+button {
+  border: none;
+  margin-top: 1rem;
+  width: 100%;
+  font-size: var(--font-md);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--warn);
+  color: var(--text-primary-alternative);
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
