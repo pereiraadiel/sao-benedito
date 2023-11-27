@@ -1,0 +1,37 @@
+.pagination {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: inherit;
+  max-width: 20rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  background-color: rgba($color: #000, $alpha: 0.35);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  >.page {
+    border-radius: var(--border-radius);
+    background-color: var(--bg-secondary);
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: width 0.5s ease-in;
+
+    &.active {
+      width: 4rem;
+      height: 2rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+}

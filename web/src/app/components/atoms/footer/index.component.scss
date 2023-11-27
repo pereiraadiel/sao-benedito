@@ -1,0 +1,105 @@
+footer {
+  width: 100%;
+  padding: 3rem 1rem 1rem 1rem;
+  background-color: var(--bg-quaternary);
+  color: var(--text-primary-alternative);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .footer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 40rem;
+    // border: 1px solid red;
+
+    > .footer-header {
+      width: 15rem;
+      >img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+
+    > .footer-content  {
+      width: 100%;
+      margin-top: 3.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap-reverse;
+      gap: 1rem;
+
+      @media (max-width: 450px) {
+        justify-content: center;
+        > .footer-addresses {
+          margin-top: 2rem;
+        }
+      }
+
+
+      > .footer-addresses, > .footer-social-media {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      > .footer-addresses {
+        > .footer-address {
+          > h2 {
+            color: var(--text-primary-alternative);
+            font-size: var(--font-md)
+          }
+          > p {
+            color: var(--text-primary-alternative);
+            font-size: var(--font-sm);
+          }
+          > span {
+            color: var(--text-primary-alternative);
+            font-size: var(--font-base);
+          }
+        }
+      }
+
+      > .footer-social-media {
+        > .social-media {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          border: none;
+          padding: 1rem;
+          width: 100%;
+          max-width: 30rem;
+          height: 4rem;
+          font-size: var(--font-sm);
+          background-color: var(--bg-quinary);
+          color: var(--text-primary-alternative);
+          font-weight: 500;
+          border-radius: var(--border-radius);
+          > img {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+
+    > .footer-copyright {
+      margin: 2rem 0 1rem 0;
+      color: var(--text-primary-alternative);
+      > p {
+        color: var(--text-primary-alternative);
+        > a {
+          color: var(--text-accent-alternative);
+        }
+      }
+    }
+  }
+
+}

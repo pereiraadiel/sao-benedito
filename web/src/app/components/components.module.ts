@@ -1,27 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LogoComponent } from './logo/logo.component';
-import { ModalComponent } from './modal/modal.component';
-import { GalleryComponent } from './gallery/gallery.component';
+import { AtomsModule } from './atoms/atoms.module';
+import { MoleculesModule } from './molecules/molecules.module';
+import { OrganismsModule } from './organisms/organisms.module';
+import { TemplatesModule } from './templates/templates.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    LogoComponent,
-    ModalComponent,
-    GalleryComponent,
+  imports: [
+    BrowserModule,
+    AtomsModule,
+    MoleculesModule,
+    OrganismsModule,
+    TemplatesModule,
+    PagesModule,
   ],
-  imports: [BrowserModule],
   providers: [],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    LogoComponent,
-    ModalComponent,
-    GalleryComponent,
-  ],
 })
 export class ComponentsModule {}

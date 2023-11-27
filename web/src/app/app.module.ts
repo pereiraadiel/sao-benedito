@@ -6,9 +6,8 @@ register();
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
-import { PagesModule } from './pages/pages.module';
-import { ApiService } from './services/api.service';
 import { ServicesModule } from './services/services.module';
+import { TemplatesModule } from './components/templates/templates.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +15,7 @@ import { ServicesModule } from './services/services.module';
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    PagesModule,
+    TemplatesModule,
     ServicesModule,
     // AngularMetaModule.forRoot(),
   ],

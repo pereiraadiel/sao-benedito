@@ -1,0 +1,8 @@
+<section class="hero">
+  <div *ngFor="let notice of notices,  let i = index" [ngClass]="i === activeNotice? 'active': ''">
+    <img *ngIf="i === activeNotice" [src]="notice.src" [alt]="notice.alt">
+  </div>
+
+  <app-pagination switchBySeconds='10' [totalPages]="notices.length"
+    (onChangePage)="handleChangeActiveNotice($event)" />
+</section>
