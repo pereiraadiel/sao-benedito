@@ -1,0 +1,18 @@
+.card {
+  min-height: 32rem;
+  border-radius: var(--border-radius);
+  padding-bottom: 1rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  position: relative;
+
+  >a {
+    text-decoration: underline;
+    font-size: var(--font-md);
+    font-weight: 800;
+    color: var(--text-accent);
+  }
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Notice } from '../../../interfaces/notice.interface';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-hero',
@@ -7,46 +8,14 @@ import { Notice } from '../../../interfaces/notice.interface';
   styleUrls: ['./index.component.scss'],
 })
 export class AppHeroComponent {
-  notices: Notice[] = [
-    // {
-    //   alt: 'Novena Nossa Senhora',
-    //   src: 'https://files.adiel.dev/missa-encerramento-novena-arte-descrição-2.jpeg',
-    //   id: '',
-    //   finalDate: new Date(),
-    // },
-    // {
-    //   alt: 'Novena Nossa Senhora',
-    //   src: 'https://files.adiel.dev/curso-turibulo-arte-descriçao.jpeg',
-    //   id: '',
-    //   finalDate: new Date(),
-    // },
-    {
-      alt: 'Fachada da matriz São Benedito',
-      src: 'https://files.adiel.dev/saobenedito-fachada.webp',
-      id: '',
-      finalDate: new Date(),
-    },
-    {
-      alt: 'Acólitas São Benedito',
-      src: 'https://files.adiel.dev/acolitas-saobenedito.webp',
-      id: '',
-      finalDate: new Date(),
-    },
-    {
-      alt: 'Nossa Senhora do Rosário',
-      src: 'https://files.adiel.dev/nossa-senhora-rosario.webp',
-      id: '',
-      finalDate: new Date(),
-    },
-    {
-      alt: "Coroinhas Sant'Ana",
-      src: 'https://files.adiel.dev/coroinhas-santana.webp',
-      id: '',
-      finalDate: new Date(),
-    },
-  ];
-
+  notices: Notice[] = [];
   activeNotice = 0;
+
+  constructor(private readonly apiService: ApiService) {}
+
+  ngOnInit() {
+    this.notices = this.apiService.notices.getMany();
+  }
 
   handleChangeActiveNotice(current: number) {
     console.log('current: ', current);

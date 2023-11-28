@@ -1,0 +1,17 @@
+h1.mass-times-title {
+  font-size: var(--font-lg);
+  font-weight: bolder;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.mass-times {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

@@ -1,0 +1,27 @@
+.card-head {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  max-width: 20rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  >h2 {
+    font-size: var(--font-sm);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  >p {
+    font-size: var(--font-sm);
+    font-weight: 400;
+    font-style: italic;
+  }
+}
