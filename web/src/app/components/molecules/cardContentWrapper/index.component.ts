@@ -11,8 +11,6 @@ type Celebration = {
   styleUrls: ['./index.component.scss'],
 })
 export class CardContentWrapperComponent {
-  @Input() variant!: 'patron' | 'celebration-time';
-
   @Input() title?: string;
   @Input() content?: string;
   @Input() masses?: Celebration[];

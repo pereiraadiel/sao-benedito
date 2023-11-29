@@ -56,7 +56,7 @@ export class ApiService {
           masses: [
             {
               day: 'Domingo',
-              time: '10h30  |  17h',
+              time: '10h30  |  17h30',
             },
             {
               day: 'Quinta-feira',

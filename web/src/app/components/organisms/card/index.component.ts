@@ -10,9 +10,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class CardComponent {
   @Input()
   community!: Community;
+  title!: string;
 
   constructor(private readonly sanitizer: DomSanitizer) {
     console.log(this.community);
+    this.title = '';
+  }
+
+  ngOnInit() {
+    this.title = this.community.name;
   }
 
   sanitizeUrl(url: string) {

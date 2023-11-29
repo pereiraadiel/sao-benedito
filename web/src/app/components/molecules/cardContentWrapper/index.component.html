@@ -1,15 +1,13 @@
 <div class="card-content-wrapper">
-  <p *ngIf="variant === 'patron'"><span>{{title}}</span> {{content}}</p>
-  <div *ngIf="variant === 'celebration-time'">
-    <h2>Missas</h2>
-    <div class="celebrations">
-      <app-card-day-time *ngFor="let celebration of masses" [day]="celebration.day"
-        [time]="celebration.time" />
+  <p *ngIf="title && content"><span>{{title}}</span> {{content}}</p>
+  <div>
+    <h2 *ngIf="masses && masses.length > 0">Missas</h2>
+    <div class="celebrations" *ngIf="masses && masses.length > 0">
+      <app-card-day-time *ngFor="let celebration of masses" [day]="celebration.day" [time]="celebration.time" />
     </div>
-    <h2>Confissões</h2>
-    <div class="celebrations">
-      <app-card-day-time *ngFor="let celebration of confessions" [day]="celebration.day"
-        [time]="celebration.time" />
+    <h2 *ngIf="confessions && confessions.length > 0">Confissões</h2>
+    <div class="celebrations" *ngIf="confessions && confessions.length > 0">
+      <app-card-day-time *ngFor="let celebration of confessions" [day]="celebration.day" [time]="celebration.time" />
     </div>
   </div>
 </div>
