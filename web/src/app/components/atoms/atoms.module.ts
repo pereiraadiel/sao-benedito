@@ -6,9 +6,11 @@ import { PaginationComponent } from './pagination/index.component';
 import { CardHeadComponent } from './cardHead/index.component';
 import { CardImageWrapperComponent } from './cardImageWrapper/index.component';
 import { CardDayTimeComponent } from './cardDayTime/index.component';
+import { AppBackgroundComponent } from './background/index.component';
 
 @NgModule({
   declarations: [
+    AppBackgroundComponent,
     HeaderComponent,
     FooterComponent,
     PaginationComponent,
@@ -19,6 +21,7 @@ import { CardDayTimeComponent } from './cardDayTime/index.component';
   imports: [BrowserModule],
   providers: [],
   exports: [
+    AppBackgroundComponent,
     HeaderComponent,
     FooterComponent,
     PaginationComponent,
