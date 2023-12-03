@@ -4,7 +4,17 @@
       <img src="/assets/logo-default.png" alt="Logo São Benedito" />
     </a>
 
-    <nav>
+    <div class="menu" [ngClass]="showMobileNavigation ? 'active' : ''" (click)="toggleShowMobileNavigation()">
+      <div>
+        <p>•••</p>
+        <p>•</p>
+      </div>
+      <span>
+        menu
+      </span>
+    </div>
+
+    <nav [ngClass]="showMobileNavigation ? 'show-mobile-navigation': ''">
       <ul>
         <li>
           <a href="/">Inicio</a>

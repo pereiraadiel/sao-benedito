@@ -12,7 +12,7 @@
     z-index: 2;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(0.5rem);
   }
   >.bubbles {
     display: flex;
@@ -28,8 +28,8 @@
       z-index: 1;
       width: 4rem;
       height: 4rem;
-      background-color: var(--text-accent);
-      filter: drop-shadow(16px 16px 20px var(--text-accent)) invert(5%);
+      background-color: var(--bg-secondary);
+      filter: drop-shadow(16px 16px 32px var(--text-accent)) invert(5%);
       opacity: 1;
       animation: calc(320s / var(--i)) fall ease-in-out infinite;;
       &.up {

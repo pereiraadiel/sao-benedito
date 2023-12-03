@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Paróquia São Benedito';
+  showMobileNavigation = false;
+
+  toggleShowMobileNavigation() {
+    this.showMobileNavigation = !this.showMobileNavigation;
+  }
+
+  closeMobileNavigation() {
+    this.showMobileNavigation = !this.showMobileNavigation;
+  }
 }
