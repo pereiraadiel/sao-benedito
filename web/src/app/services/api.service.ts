@@ -81,29 +81,33 @@ export class ApiService {
   };
 
   notices = {
-    getMany: (limit = 5) => {
+    getMany: (deviceAgent: 'mobile' | 'desktop' = 'mobile', limit = 5) => {
       const placeholderNotices: Notice[] = [
         {
           alt: 'Fachada da matriz São Benedito',
           src: 'https://files.adiel.dev/saobenedito-fachada.webp',
           id: '',
+          deviceAgent: 'desktop',
           finalDate: new Date(),
         },
         {
           alt: 'Acólitas São Benedito',
           src: 'https://files.adiel.dev/acolitas-saobenedito.webp',
           id: '',
+          deviceAgent: 'desktop',
           finalDate: new Date(),
         },
         {
           alt: 'Nossa Senhora do Rosário',
           src: 'https://files.adiel.dev/nossa-senhora-rosario.webp',
           id: '',
+          deviceAgent: 'desktop',
           finalDate: new Date(),
         },
         {
           alt: "Coroinhas Sant'Ana",
           src: 'https://files.adiel.dev/coroinhas-santana.webp',
+          deviceAgent: 'desktop',
           id: '',
           finalDate: new Date(),
         },
@@ -111,21 +115,50 @@ export class ApiService {
 
       const notices: Notice[] = [
         // {
+        //   alt: 'Auto de Natal da Catequese',
+        //   src: 'https://files.adiel.dev/auto-natal.png',
+        //   id: '',
+        //   deviceAgent: 'desktop',
+        //   finalDate: new Date(),
+        // },
+        {
+          alt: 'Auto de Natal da Catequese',
+          src: 'https://files.adiel.dev/auto-natal.jpeg',
+          id: '',
+          deviceAgent: 'mobile',
+          finalDate: new Date(),
+        },
+        {
+          alt: 'Auto de Natal Solidário',
+          src: 'https://files.adiel.dev/auto-natal-solidario.jpeg',
+          id: '',
+          deviceAgent: 'mobile',
+          finalDate: new Date(),
+        },
+        // {
         //   alt: 'Novena Nossa Senhora',
         //   src: 'https://files.adiel.dev/missa-encerramento-novena-arte-descrição-2.jpeg',
         //   id: '',
+        //   deviceAgent: 'desktop',
         //   finalDate: new Date(),
         // },
         // {
         //   alt: 'Novena Nossa Senhora',
         //   src: 'https://files.adiel.dev/curso-turibulo-arte-descriçao.jpeg',
         //   id: '',
+        //   deviceAgent: 'desktop',
         //   finalDate: new Date(),
         // },
       ];
 
-      if (notices.length > 0) return notices.slice(0, limit);
-      return placeholderNotices;
+      const deviceNotices = notices.filter(
+        (notice) => notice.deviceAgent === deviceAgent
+      );
+
+      if (deviceNotices.length > 0) return deviceNotices.slice(0, limit);
+      return placeholderNotices.filter(
+        (notice) => notice.deviceAgent === deviceAgent
+      );
     },
   };
 

@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PaginationComponent implements OnInit {
   @Input()
   totalPages: number = 5;
+  @Input()
   currentPage: number = 1;
   autoSwitchPage: boolean = true;
 

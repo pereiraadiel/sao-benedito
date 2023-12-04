@@ -4,12 +4,12 @@ section.hero {
   padding-top: 3.5rem;
   margin-bottom: 1rem;
   position: relative;
-  max-height: 25rem;
+  min-height: 60vh;
   overflow: hidden;
 
   @media (min-width: 480px) {
     height: 50rem;
-    max-height: none;
+    min-height: none;
     padding: 0 1rem;
   }
   >div {
@@ -30,7 +30,7 @@ section.hero {
       min-height: 15rem;
       height: auto;
       border-radius: var(--border-radius);
-      animation: opacity 2s ease-in-out;
+      animation: opacity 1s ease-in-out;
       object-fit: fill;
       object-position: center center;
 

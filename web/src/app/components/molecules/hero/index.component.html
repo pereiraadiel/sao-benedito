@@ -3,6 +3,6 @@
     <img *ngIf="i === activeNotice" [src]="notice.src" [alt]="notice.alt">
   </div>
 
-  <app-pagination switchBySeconds='15' [totalPages]="notices.length"
-    (onChangePage)="handleChangeActiveNotice($event)" />
+  <app-pagination switchBySeconds='15' [totalPages]="notices.length" (onChangePage)="handleChangeActiveNotice($event)"
+    [currentPage]="activeNotice + 1" />
 </section>

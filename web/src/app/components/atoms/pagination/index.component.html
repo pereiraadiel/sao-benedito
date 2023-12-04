@@ -1,4 +1,4 @@
-<div class="pagination">
+<div class="pagination" *ngIf="pages.length > 1">
   <div class="page" *ngFor="let page of pages" [ngClass]="page === currentPage? 'active': ''"
     (click)="handleChangePage(page)">
     {{(page)}}
