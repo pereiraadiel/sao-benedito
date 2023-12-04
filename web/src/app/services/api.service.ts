@@ -114,13 +114,13 @@ export class ApiService {
       ];
 
       const notices: Notice[] = [
-        // {
-        //   alt: 'Auto de Natal da Catequese',
-        //   src: 'https://files.adiel.dev/auto-natal.png',
-        //   id: '',
-        //   deviceAgent: 'desktop',
-        //   finalDate: new Date(),
-        // },
+        {
+          alt: 'Auto de Natal da Catequese',
+          src: 'https://files.adiel.dev/auto-natal.png',
+          id: '',
+          deviceAgent: 'desktop',
+          finalDate: new Date(),
+        },
         {
           alt: 'Auto de Natal da Catequese',
           src: 'https://files.adiel.dev/auto-natal.jpeg',
