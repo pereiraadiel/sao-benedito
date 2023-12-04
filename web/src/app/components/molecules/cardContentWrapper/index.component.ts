@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 type Celebration = {
   day: string;
-  time: string;
+  times: string[];
 };
 
 @Component({

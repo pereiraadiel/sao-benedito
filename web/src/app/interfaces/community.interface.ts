@@ -5,10 +5,10 @@ export type Community = {
   mapUrl: string;
   masses: {
     day: string;
-    time: string;
+    times: string[];
   }[];
   confessions: {
     day: string;
-    time: string;
+    times: string[];
   }[];
 };

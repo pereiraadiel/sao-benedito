@@ -3,11 +3,11 @@
   <div>
     <h2 *ngIf="masses && masses.length > 0">Missas</h2>
     <div class="celebrations" *ngIf="masses && masses.length > 0">
-      <app-card-day-time *ngFor="let celebration of masses" [day]="celebration.day" [time]="celebration.time" />
+      <app-card-day-time *ngFor="let celebration of masses" [day]="celebration.day" [times]="celebration.times" />
     </div>
     <h2 *ngIf="confessions && confessions.length > 0">Confissões</h2>
     <div class="celebrations" *ngIf="confessions && confessions.length > 0">
-      <app-card-day-time *ngFor="let celebration of confessions" [day]="celebration.day" [time]="celebration.time" />
+      <app-card-day-time *ngFor="let celebration of confessions" [day]="celebration.day" [times]="celebration.times" />
     </div>
   </div>
 </div>

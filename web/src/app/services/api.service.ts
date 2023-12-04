@@ -21,30 +21,30 @@ export class ApiService {
           mapUrl: 'https://maps.app.goo.gl/JYbh2XJt1bDqSFdd6',
           masses: [
             {
+              day: 'Sábado',
+              times: ['19h (liturgia domingo)', '\u00A0', '\u00A0'],
+            },
+            {
               day: 'Domingo',
-              time: '7h30  |  9h  |  19h',
+              times: ['7h30', '9h (com crianças)', '19h'],
             },
             {
               day: 'Quarta-feira',
-              time: '19h30',
+              times: ['19h30', '\u00A0'],
             },
             {
-              day: '1ª Sexta-feira',
-              time: '19h30',
+              day: '1ª Sexta-feira do mês',
+              times: ['19h30 (sagrado coração)'],
             },
             {
-              day: '2ª Sexta-feira',
-              time: '15h (com enfermos)',
-            },
-            {
-              day: 'Sábado',
-              time: '19h',
+              day: '2ª Sexta-feira do mês',
+              times: ['15h (com enfermos)', '\u00A0'],
             },
           ],
           confessions: [
             {
               day: 'Terça à Sexta',
-              time: '15h às 17h',
+              times: ['15h às 17h'],
             },
           ],
         },
@@ -56,19 +56,19 @@ export class ApiService {
           masses: [
             {
               day: 'Domingo',
-              time: '10h30  |  17h30',
+              times: ['10h30 (com crianças)', '17h30'],
             },
             {
               day: 'Quinta-feira',
-              time: '19h30',
+              times: ['19h30', '\u00A0'],
             },
             {
-              day: '1ª Sexta-feira',
-              time: '19h30',
+              day: '1ª Sexta-feira do mês',
+              times: ['19h30 (sagrado coração)'],
             },
             {
-              day: '2ª Sexta-feira',
-              time: '15h (com enfermos)',
+              day: '2ª Sexta-feira do mês',
+              times: ['15h (com enfermos)', '\u00A0'],
             },
           ],
           confessions: [],

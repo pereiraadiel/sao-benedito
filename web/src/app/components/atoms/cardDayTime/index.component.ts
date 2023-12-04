@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CardDayTimeComponent {
   @Input() day!: string;
-  @Input() time!: string;
+  @Input() times!: string[];
 }
