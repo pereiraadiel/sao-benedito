@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero swipe" (swipe)="handleSwipe($event)">
   <div *ngFor="let notice of notices,  let i = index" [ngClass]="i === activeNotice? 'active': ''">
     <img *ngIf="i === activeNotice" [src]="notice.src" [alt]="notice.alt">
   </div>
