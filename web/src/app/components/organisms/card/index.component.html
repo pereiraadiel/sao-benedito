@@ -4,8 +4,7 @@
     variant="full-height" /> -->
   <app-card-image-wrapper [src]="community.coverUrl" [alt]="'Fachada da ' + community.name" />
 
-  <app-card-content-wrapper variant="celebration-time" [masses]="community.masses"
-    [confessions]="community.confessions" />
+  <app-card-content-wrapper [masses]="community.masses" [confessions]="community.confessions" [content]="community.name" />
 
   <a [href]="sanitizeUrl(community.mapUrl)" target="_blank" rel="noreferrer noopener">ver no mapa</a>
 </div>

@@ -1,0 +1,74 @@
+section.home {
+  margin-top: 25rem;
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 0;
+  place-items: center;
+  grid-template-columns:  repeat(auto-fill, minmax(24rem, 1fr));
+}
+
+.hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+  width: 100%;
+  margin-top: 6.8rem;
+  @media (max-width: 480px) {
+    margin-top: 11.8rem;
+    align-items: flex-end;
+  }
+  > img.bg {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center 35%;
+    animation: animatePosition 8s infinite linear alternate;
+  }
+  > img.brand {
+    z-index: 2;
+    position: absolute;
+    bottom: 3%;
+    height: 45%;
+    @media (max-width: 480px) {
+      bottom: 3%;
+      width: 6rem;
+      height: auto;
+    }
+  }
+  > div.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 206,196, 0.6);
+    z-index: 2;
+  }
+}
+
+@keyframes animatePosition {
+  0% { object-position: center 0%; }
+  5% { object-position: center 5%; }
+  10% { object-position: center 10%; }
+  20% { object-position: center 20%; }
+  25% { object-position: center 25%; }
+  30% { object-position: center 30%; }
+  35% { object-position: center 35%; }
+  40% { object-position: center 40%; }
+  45% { object-position: center 45%; }
+  50% { object-position: center 50%; }
+  55% { object-position: center 55%; }
+  60% { object-position: center 60%; }
+  65% { object-position: center 65%; }
+  70% { object-position: center 70%; }
+  75% { object-position: center 75%; }
+  80% { object-position: center 80%; }
+  85% { object-position: center 85%; }
+  90% { object-position: center 90%; }
+  95% { object-position: center 95%; }
+  100% { object-position: center 100%; }
+}

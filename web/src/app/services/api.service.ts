@@ -114,37 +114,9 @@ export class ApiService {
       ];
 
       const notices: Notice[] = [
-        {
-          alt: 'Auto de Natal da Catequese',
-          src: 'https://files.adiel.dev/auto-natal.png',
-          id: '',
-          deviceAgent: 'desktop',
-          finalDate: new Date(),
-        },
-        {
-          alt: 'Auto de Natal da Catequese',
-          src: 'https://files.adiel.dev/auto-natal.jpeg',
-          id: '',
-          deviceAgent: 'mobile',
-          finalDate: new Date(),
-        },
-        {
-          alt: 'Auto de Natal Solidário',
-          src: 'https://files.adiel.dev/auto-natal-solidario.jpeg',
-          id: '',
-          deviceAgent: 'mobile',
-          finalDate: new Date(),
-        },
         // {
-        //   alt: 'Novena Nossa Senhora',
-        //   src: 'https://files.adiel.dev/missa-encerramento-novena-arte-descrição-2.jpeg',
-        //   id: '',
-        //   deviceAgent: 'desktop',
-        //   finalDate: new Date(),
-        // },
-        // {
-        //   alt: 'Novena Nossa Senhora',
-        //   src: 'https://files.adiel.dev/curso-turibulo-arte-descriçao.jpeg',
+        //   alt: 'Auto de Natal da Catequese',
+        //   src: 'https://files.adiel.dev/auto-natal.png',
         //   id: '',
         //   deviceAgent: 'desktop',
         //   finalDate: new Date(),

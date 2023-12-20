@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-secretaria',
+  selector: 'app-secretary',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
-export class SecretariaPageComponent {
+export class SecretaryPageComponent {
   constructor(private readonly meta: Meta, private readonly title: Title) {}
 
   ngOnInit(): void {

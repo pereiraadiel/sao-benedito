@@ -4,36 +4,18 @@ section.secretaria {
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  min-height: 40vh;
   z-index: 0;
-
-  > span.bg, > h1 {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-family: Nunito;
-    color: var(--text-primary);
-  }
-
-  > span.bg {
-    position: absolute;
-    top: 5rem;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    font-size: 7rem;
-    color: rgba(50, 28, 17, 0.1);
-    cursor: default;
-  }
 
   > h1 {
     z-index: 10;
-    font-size: var(--font-xl);
-    margin-top: 3.5rem;
+    font-size: var(--font-lg);
+    font-weight: bolder;
+    margin-top: 4rem;
+    text-transform: uppercase;
   }
 
   > .content {
     width: 100%;
-    margin-top: 3.2rem;
     margin-bottom: 2rem;
     padding: 1rem;
     > .wrapper {
@@ -48,56 +30,34 @@ section.secretaria {
         width: 100%;
         margin-bottom: 1rem;
 
-        > .side {
-          width: 100%;
-          max-width: 32rem;
-          min-height: 32rem;
-          padding: 1rem;
-          text-align: center;
-          border-radius: var(--border-radius);
-          background-color: var(--bg-secondary);
-          color: var(--text-primary);
-
-          > img {
-            object-fit: cover;
-            width: 100%;
-            border-radius: var(--border-radius);
-          }
-
-          > h2 {
-            font-size: var(--font-md);
-            margin: 0.5rem;
-          }
-
-          > p, > a {
-            font-size: var(--font-sm);
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-          }
-
-          > a {
-            color: var(--text-accent);
-            font-weight: 500;
-          }
-        }
-
         > .map-wrapper {
           width: 100%;
-          max-width: 40rem;
           min-height: 32rem;
           padding: 1rem;
+          flex: 1;
           border-radius: var(--border-radius);
           background-color: var(--bg-secondary);
           color: var(--text-primary);
 
-          > h3 {
-            font-size: var(--font-md);
-            margin-bottom: 0.25rem;
+          > h2 {
+            font-size: var(--font-lg);
+            margin-bottom: 0.75rem;
           }
 
           > p {
-            font-size: var(--font-sm);
+            font-size: var(--font-md);
             font-weight: 500;
+            margin-bottom: 0.35rem;
+
+            >strong {
+              font-size: var(--font-md);
+              font-weight: 700;
+            }
+            > span {
+              font-size: var(--font-sm);
+              font-style: italic;
+              font-weight: 500;
+            }
           }
 
           > iframe {
@@ -118,7 +78,7 @@ section.secretaria {
         }
 
         @media (max-width: 948px) {
-          > .side , > .map-wrapper {
+          > .map-wrapper {
             max-width: none;
             width: 100vw;
           }

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPageComponent } from './components/pages/notFound/index.component';
 import { HomePageComponent } from './components/pages/home/index.component';
-import { SecretariaPageComponent } from './components/pages/secretaria/index.component';
+import { SecretaryPageComponent } from './components/pages/secretary/index.component';
+import { PatronsPageComponent } from './components/pages/patrons/index.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,13 @@ const routes: Routes = [
   {
     path: 'secretaria',
     title: 'Secretaria | Paróquia São Benedito',
-    component: SecretariaPageComponent,
+    component: SecretaryPageComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'padroeiros',
+    title: 'Padroeiros | Paróquia São Benedito',
+    component: PatronsPageComponent,
     pathMatch: 'full',
   },
   {
