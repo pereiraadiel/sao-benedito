@@ -14,8 +14,6 @@ export class MediasConcreteRepository implements MediasRepository {
     const media = await this.database.media.create({
       data: {
         ...entity,
-        event: undefined,
-        project: undefined,
       },
     });
 

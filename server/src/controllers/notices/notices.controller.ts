@@ -20,6 +20,8 @@ import { UpdateOneNoticeUsecase } from '../../usecases/notices/updateOneNotice.u
 import { UpdateOneNoticeDTO } from '../../dtos/notices/updateOneNotice.dto';
 import { GetOneNoticeByIdDTO } from '../../dtos/notices/getOneNoticeById.dto';
 import { GetAllNoticesDTO } from '../../dtos/notices/getAllNotices.dto';
+import { Role } from '../../decorators/role.decorator';
+import { RoleEnum } from '../../enums/role.enum';
 
 @Controller('/notices')
 export class NoticesController {
@@ -32,6 +34,7 @@ export class NoticesController {
   ) {}
 
   @Post()
+  @Role([RoleEnum.admin, RoleEnum.super, RoleEnum.priest])
   createOneNotice(@Body() request: CreateOneNoticeDTO) {
     return this.createOneNoticeUsecase.handle(request);
   }
@@ -49,6 +52,7 @@ export class NoticesController {
   }
 
   @Patch('/:id')
+  @Role([RoleEnum.admin, RoleEnum.super, RoleEnum.priest])
   updateOneNotice(
     @Body() request: UpdateOneNoticeDTO,
     @Param() { id }: GetOneNoticeByIdDTO,
@@ -60,6 +64,7 @@ export class NoticesController {
   }
 
   @Delete('/:id')
+  @Role([RoleEnum.admin, RoleEnum.super, RoleEnum.priest])
   deleteOneNotice(@Param() request: DeleteOneNoticeDTO) {
     return this.deleteOneNoticeUsecase.handle(request);
   }

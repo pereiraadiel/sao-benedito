@@ -21,7 +21,15 @@ export class CreateOneUserUsecase extends Usecase {
   }
 
   async handle(
-    { cpf, email, firstName, lastName, password, phone }: CreateOneUserDTO,
+    {
+      cpf,
+      email,
+      firstName,
+      lastName,
+      password,
+      phone,
+      role,
+    }: CreateOneUserDTO,
     token: string,
   ) {
     try {
@@ -47,6 +55,7 @@ export class CreateOneUserUsecase extends Usecase {
         firstName,
         lastName,
         phone,
+        role,
         passwordHash: await this.hashService.hash(password),
       });
 

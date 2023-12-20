@@ -1,4 +1,11 @@
-import { IsEmail, IsNotEmpty, IsNumberString, Length } from 'class-validator';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsNumberString,
+  Length,
+} from 'class-validator';
+import { RoleEnum } from '../../enums/role.enum';
 
 export class CreateOneUserDTO {
   @IsNotEmpty()
@@ -25,4 +32,7 @@ export class CreateOneUserDTO {
   @IsNumberString()
   @Length(8, 11)
   phone: string;
+
+  @IsEnum(RoleEnum)
+  role: RoleEnum;
 }

@@ -78,6 +78,10 @@ export class SignUserInUsecase extends Usecase {
       }
 
       delete user.passwordHash;
+      delete user.createdAt;
+      delete user.updatedAt;
+      delete user.cpf;
+      delete user.phone;
 
       return {
         accessToken: await this.generateToken(user),

@@ -23,6 +23,10 @@ import { UpdateOneUserPhoneUsecase } from '../../usecases/users/updateOneUserPho
 import { UpdateOneUserPersonalInfoUsecase } from '../../usecases/users/updateOneUserPersonalInfo.usecase';
 import { AuthInterceptor } from '../../interceptors/auth.interceptor';
 import { Request } from 'express';
+import { AssignUserRoleDTO } from '../../dtos/users/assignUserRole.dto';
+import { AssignUserRoleUsecase } from '../../usecases/users/assignUserRole.usecase';
+import { Role } from '../../decorators/role.decorator';
+import { RoleEnum } from '../../enums/role.enum';
 
 @UseInterceptors(AuthInterceptor)
 @Controller('/users')
@@ -34,9 +38,11 @@ export class UsersController {
     private readonly updateOneUserCpfUsecase: UpdateOneUserCpfUsecase,
     private readonly updateOneUserEmailUsecase: UpdateOneUserEmailUsecase,
     private readonly updateOneUserPhoneUsecase: UpdateOneUserPhoneUsecase,
+    private readonly assignUserRoleUsecase: AssignUserRoleUsecase,
   ) {}
 
   @Post()
+  @Role(RoleEnum.super)
   createOneUser(@Body() request: CreateOneUserDTO, @Req() { token }: Request) {
     return this.createOneUserUsecase.handle(request, token);
   }
@@ -107,5 +113,17 @@ export class UsersController {
       },
       token,
     );
+  }
+
+  @Patch('/:id/role')
+  @Role(RoleEnum.super)
+  assignUserRole(
+    @Param() { id }: GetOneUserByIdDTO,
+    @Body() request: AssignUserRoleDTO,
+  ) {
+    return this.assignUserRoleUsecase.handle({
+      id,
+      ...request,
+    });
   }
 }

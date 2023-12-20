@@ -8,6 +8,7 @@ import { UpdateOneUserPersonalInfoUsecase } from '../usecases/users/updateOneUse
 import { UpdateOneUserEmailUsecase } from '../usecases/users/updateOneUserEmail.usecase';
 import { UpdateOneUserCpfUsecase } from '../usecases/users/updateOneUserCpf.usecase';
 import { UpdateOneUserPhoneUsecase } from '../usecases/users/updateOneUserPhone.usecase';
+import { AssignUserRoleUsecase } from '../usecases/users/assignUserRole.usecase';
 
 @Module({
   controllers: [UsersController],
@@ -18,6 +19,7 @@ import { UpdateOneUserPhoneUsecase } from '../usecases/users/updateOneUserPhone.
     UpdateOneUserEmailUsecase,
     UpdateOneUserCpfUsecase,
     UpdateOneUserPhoneUsecase,
+    AssignUserRoleUsecase,
     {
       provide: USERS_REPOSITORY,
       useClass: UsersConcreteRepository,

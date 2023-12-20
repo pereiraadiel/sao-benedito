@@ -10,85 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Community {
-  id              String    @id @map("_id")
-  name            String
-  description     String
-  phone           String
-  email           String
-  addressStreet   String
-  addressDistrict String
-  addressMapLink  String
-  history         String?
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime? @map("updated_at")
-
-  masses         Mass[]
-  events         Event[]
-  confessions    Confession[]
-  secretaryTimes SecretaryTime[]
-  projects       Project[]
-
-  @@map("communities")
-}
-
-enum Day {
-  Domingo
-  Segunda
-  Terca
-  Quarta
-  Quinta
-  Sexta
-  Sabado
-}
-
-model Confession {
-  id          String    @id @map("_id")
-  initialTime String
-  finalTime   String
-  day         Day
-  communityId String?
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime? @map("updated_at")
-
-  community Community? @relation(fields: [communityId], references: [id])
-
-  @@map("confessions")
-}
-
-model Event {
-  id          String    @id @map("_id")
-  title       String
-  description String
-  initialDate DateTime
-  finalDate   DateTime
-  communityId String
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime? @map("updated_at")
-
-  medias    Media[]
-  community Community @relation(fields: [communityId], references: [id])
-
-  @@map("events")
-}
-
-model Mass {
-  id          String    @id @map("_id")
-  title       String
-  time        String
-  day         Day
-  communityId String?
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime? @map("updated_at")
-
-  community Community? @relation(fields: [communityId], references: [id])
-
-  @@map("masses")
-}
-
 enum MediaTypeEnum {
   video
   image
+}
+
+enum DeviceAgent {
+  Mobile
+  Desktop
+}
+
+enum Role {
+  Super
+  Admin
+  Priest
+  Common
 }
 
 model Media {
@@ -96,56 +32,22 @@ model Media {
   alternativeText String
   source          String
   type            MediaTypeEnum
-  projectId       String?
-  eventId         String?
   createdAt       DateTime      @default(now()) @map("created_at")
   updatedAt       DateTime?     @map("updated_at")
-
-  event   Event?   @relation(fields: [eventId], references: [id])
-  project Project? @relation(fields: [projectId], references: [id])
 
   @@map("medias")
 }
 
 model Notice {
-  id            String    @id @map("_id")
-  title         String
-  description   String
-  coverImageUrl String
-  notifyFrom    DateTime  @default(now())
-  notifyUntil   DateTime
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime? @map("updated_at")
+  id          String      @id @map("_id")
+  altText     String
+  source      String
+  deviceAgent DeviceAgent @default(Mobile)
+  finalDate   DateTime
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime?   @map("updated_at")
 
   @@map("notices")
-}
-
-model Project {
-  id          String    @id @map("_id")
-  title       String
-  description String
-  finishedIn  DateTime?
-  communityId String
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime? @map("updated_at")
-
-  medias    Media[]
-  community Community @relation(fields: [communityId], references: [id])
-
-  @@map("projects")
-}
-
-model SecretaryTime {
-  id          String     @id @map("_id")
-  initialTime String
-  finalTime   String
-  day         Day
-  communityId String?
-  createdAt   DateTime   @default(now()) @map("created_at")
-  updatedAt   DateTime?  @map("updated_at")
-  community   Community? @relation(fields: [communityId], references: [id])
-
-  @@map("secretary_times")
 }
 
 model User {
@@ -156,6 +58,7 @@ model User {
   phone        String
   cpf          String    @unique
   passwordHash String
+  role         Role      @default(Common)
   createdAt    DateTime  @default(now()) @map("created_at")
   updatedAt    DateTime? @map("updated_at")
 

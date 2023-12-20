@@ -1,3 +1,5 @@
+import { RoleEnum } from '../../enums/role.enum';
+
 export interface UpdateOneUserDAO {
   id: string;
   firstName?: string;
@@ -6,4 +8,5 @@ export interface UpdateOneUserDAO {
   cpf?: string;
   phone?: string;
   passwordHash?: string;
+  role?: RoleEnum;
 }

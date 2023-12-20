@@ -24,7 +24,7 @@ export class CreateOneNoticeUsecase extends Usecase {
     } catch (error) {
       this.exceptionHandler(error, [
         {
-          title: dto.title,
+          title: dto.altText,
         },
       ]);
     }

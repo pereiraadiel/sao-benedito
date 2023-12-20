@@ -1,3 +1,5 @@
+import { RoleEnum } from '../../enums/role.enum';
+
 export interface CreateOneUserDAO {
   firstName: string;
   lastName: string;
@@ -5,4 +7,5 @@ export interface CreateOneUserDAO {
   email: string;
   passwordHash: string;
   phone: string;
+  role: RoleEnum;
 }

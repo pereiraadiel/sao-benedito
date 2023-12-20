@@ -9,6 +9,8 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express/multer';
+import { Role } from '../../decorators/role.decorator';
+import { RoleEnum } from '../../enums/role.enum';
 
 @Controller('/medias')
 export class MediasController {
@@ -17,6 +19,7 @@ export class MediasController {
   ) {}
 
   @Post('/images')
+  @Role([RoleEnum.admin, RoleEnum.super, RoleEnum.priest])
   @UseInterceptors(FileInterceptor('file'))
   async uploadMediaImage(
     @UploadedFile(
@@ -33,6 +36,7 @@ export class MediasController {
   }
 
   @Post('/videos')
+  @Role([RoleEnum.admin, RoleEnum.super, RoleEnum.priest])
   @UseInterceptors(FileInterceptor('file'))
   async uploadMediaVideo(
     @UploadedFile(

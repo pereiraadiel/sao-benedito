@@ -37,7 +37,7 @@ export class NoticesConcreteRepository implements NoticesRepository {
     const notices = await this.database.notice.findMany({
       where: {
         AND: {
-          notifyUntil: {
+          finalDate: {
             lte: dao.filterUntilDate,
           },
         },
@@ -48,11 +48,10 @@ export class NoticesConcreteRepository implements NoticesRepository {
 
   async updateOne(dao: UpdateOneNoticeDAO): Promise<NoticeEntity> {
     const updateDao = {
-      title: dao.title,
-      description: dao.description,
-      notifyFrom: dao.notifyFrom,
-      notifyUntil: dao.notifyUntil,
-      coverImageUrl: dao.coverImageUrl,
+      altText: dao.altText,
+      source: dao.source,
+      deviceAgent: dao.deviceAgent,
+      finalDate: dao.finalDate,
       id: undefined,
       updatedAt: new Date(),
     };

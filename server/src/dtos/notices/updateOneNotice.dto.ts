@@ -1,29 +1,24 @@
-import { IsDateString, IsOptional, IsUrl, Length } from 'class-validator';
+import { IsDateString, IsEnum, IsOptional, MinLength } from 'class-validator';
+import { DeviceAgentEnum } from '../../enums/deviceAgent.enum';
 
 export class UpdateOneNoticeDTO {
   @IsOptional()
-  @Length(5, 255)
-  title?: string;
+  @MinLength(5)
+  altText?: string;
 
   @IsOptional()
-  @Length(5, 255)
-  description?: string;
+  @MinLength(3)
+  source?: string;
 
   @IsOptional()
-  @IsUrl()
-  coverImageUrl?: string;
-
-  @IsOptional()
-  @IsDateString({
-    strict: true,
-  })
-  notifyFrom?: Date;
+  @IsEnum(DeviceAgentEnum)
+  deviceAgent?: DeviceAgentEnum;
 
   @IsOptional()
   @IsDateString({
     strict: true,
   })
-  notifyUntil?: Date;
+  finalDate?: Date;
 
   id?: string;
 }

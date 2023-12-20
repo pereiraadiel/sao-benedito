@@ -1,7 +1,8 @@
+import { DeviceAgentEnum } from '../../enums/deviceAgent.enum';
+
 export class CreateOneNoticeDAO {
-  title: string;
-  description: string;
-  coverImageUrl: string;
-  notifyFrom?: Date;
-  notifyUntil: Date;
+  altText: string;
+  source: string;
+  deviceAgent: DeviceAgentEnum;
+  finalDate: Date;
 }

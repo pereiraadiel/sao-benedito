@@ -13,13 +13,8 @@ import { AuthGuard } from '../guards/auth.guard';
 import { AuthInterceptorModule } from './authInterceptor.module';
 import { MediasModule } from './medias.module';
 import { StorageModule } from './storage.module';
-import { CommunitiesModule } from './communities.module';
-import { ConfessionsModule } from './confessions.module';
-import { SecretaryTimesModule } from './secretaryTimes.module';
-import { MassesModule } from './masses.module';
-import { EventsModule } from './events.module';
 import { NoticesModule } from './notices.module';
-import { ProjectsModule } from './projects.module';
+import { RoleGuard } from '../guards/role.guard';
 
 @Module({
   imports: [
@@ -35,15 +30,12 @@ import { ProjectsModule } from './projects.module';
     AuthInterceptorModule,
     UsersModule,
     MediasModule,
-    CommunitiesModule,
-    ConfessionsModule,
-    MassesModule,
-    SecretaryTimesModule,
-    EventsModule,
     NoticesModule,
-    ProjectsModule,
   ],
-  providers: [{ provide: APP_GUARD, useClass: AuthGuard }],
+  providers: [
+    { provide: APP_GUARD, useClass: AuthGuard },
+    { provide: APP_GUARD, useClass: RoleGuard },
+  ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {

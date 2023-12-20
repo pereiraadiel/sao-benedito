@@ -1,11 +1,11 @@
+import { DeviceAgentEnum } from '../enums/deviceAgent.enum';
 import { Entity } from './entity';
 
 export class NoticeEntity extends Entity {
-  title: string;
-  description: string;
-  coverImageUrl: string;
-  notifyFrom?: Date;
-  notifyUntil: Date;
+  altText: string;
+  source: string;
+  deviceAgent: DeviceAgentEnum;
+  finalDate: Date;
 
   constructor(entity: Omit<NoticeEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);

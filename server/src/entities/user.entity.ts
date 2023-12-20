@@ -1,3 +1,4 @@
+import { RoleEnum } from '../enums/role.enum';
 import { Entity } from './entity';
 
 export class UserEntity extends Entity {
@@ -7,6 +8,7 @@ export class UserEntity extends Entity {
   email: string;
   phone: string;
   passwordHash: string;
+  role: RoleEnum;
 
   constructor(entity: Omit<UserEntity, 'id' | 'createdAt'>, id?: string) {
     super(entity, id);
