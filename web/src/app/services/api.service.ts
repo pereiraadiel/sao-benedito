@@ -114,13 +114,34 @@ export class ApiService {
       ];
 
       const notices: Notice[] = [
-        // {
-        //   alt: 'Auto de Natal da Catequese',
-        //   src: 'https://files.adiel.dev/auto-natal.png',
-        //   id: '',
-        //   deviceAgent: 'desktop',
-        //   finalDate: new Date(),
-        // },
+        {
+          alt: 'Noite de Espetinho (03 e 04 de Fevereiro)',
+          src: 'https://files.adiel.dev/noite-espetinho.png',
+          id: '1',
+          deviceAgent: 'desktop',
+          finalDate: new Date(),
+        },
+        {
+          alt: 'Tarde de Galinhada (04 de Fevereiro)',
+          src: 'https://files.adiel.dev/tarde-galinhada.png',
+          id: '2',
+          deviceAgent: 'desktop',
+          finalDate: new Date(),
+        },
+        {
+          alt: 'Noite de Espetinho (03 e 04 de Fevereiro)',
+          src: 'https://files.adiel.dev/noite-espetinho-m.png',
+          id: '1',
+          deviceAgent: 'mobile',
+          finalDate: new Date(),
+        },
+        {
+          alt: 'Tarde de Galinhada (04 de Fevereiro)',
+          src: 'https://files.adiel.dev/tarde-galinhada-m.png',
+          id: '2',
+          deviceAgent: 'mobile',
+          finalDate: new Date(),
+        },
       ];
 
       const deviceNotices = notices.filter(
