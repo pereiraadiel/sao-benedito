@@ -14,22 +14,22 @@ const routes: Routes = [
       meta: {
         title: 'Paróquia São Benedito',
         description:
-          "Paróquia São Benedito e Comunidade Sant'Ana - Diocese de Uberlândia-MG",
+          "Paróquia São Benedito - Diocese de Uberlândia-MG",
       },
     },
   },
-  {
-    path: 'secretaria',
-    title: 'Secretaria | Paróquia São Benedito',
-    component: SecretaryPageComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'padroeiros',
-    title: 'Padroeiros | Paróquia São Benedito',
-    component: PatronsPageComponent,
-    pathMatch: 'full',
-  },
+  // {
+  //   path: 'secretaria',
+  //   title: 'Secretaria | Paróquia São Benedito',
+  //   component: SecretaryPageComponent,
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'padroeiros',
+  //   title: 'Padroeiros | Paróquia São Benedito',
+  //   component: PatronsPageComponent,
+  //   pathMatch: 'full',
+  // },
   {
     path: '**',
     title: '404 | Paróquia São Benedito',
